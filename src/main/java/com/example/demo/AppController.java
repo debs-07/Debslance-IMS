@@ -5,6 +5,8 @@ package com.example.demo;
 import java.io.IOException;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -246,6 +248,17 @@ public class AppController {
     public Item update(@RequestBody Item itemObj) {
     	return itemRepo.save(itemObj);
     }
+    
+    
+    
+    
+    
+    
+    
+    @GetMapping("/myFb")
+		    public void myFb(HttpServletResponse httpServletResponse) throws IOException {
+		        httpServletResponse.sendRedirect("https://www.facebook.com/debakanta.satapathy.07/");
+		}
 	
 	}
 
