@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" 
+    rel="stylesheet">
+    <link rel="stylesheet" href="/css/dashboardPre.css" type="text/css">
+    <link rel="stylesheet" href="css/menu.css">
+    <title>Hamburger Menu Overlay</title>
+</head>
+<body>
+    <div class="menu-wrap">
+        <input type="checkbox" class="toggler">
+        <div class="hamburger"><div></div></div>
+        <div class="menu">
+            <div>
+                <div>
+                    <ul>
+                        <li><a  type="button" class="btn first"href="#">About</a></li>
+                        <li><a type="button" class="btn fourth" th:href="@{/}">Home</a></li>
+                        <li><a type="button" class="btn fifth" href="#">Services</a></li>
+                        <li><a type="button" class="btn fourth" href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header id="showcase">
+        <div class="container showcase-content">
+            <h2>Welcome Back</h2>     
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, 
+            quasi quam tenetur exercitationem sint suscipit ipsum in pariatur officiis mollitia!</p>
+            <a type="button" class="btn fourth" id="Home" th:href="@{/dashboard}">Dashboard</a>
+        </div>
+    </header>
+</body>
+</html>
+

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://kit.fontawesome.com/369c45c001.js" crossorigin="anonymous"></script>
+    <title>Frontend Mentor | Clipboard Landing Page</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="darkthemelandingpage.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/css/retailersHome.css" type="text/css">
+    </head>
+<body>
+    <header>
+        <div class="navbar">
+            <img src="https://raw.githubusercontent.com/hammercait/fylo-dark-theme-landing-page/658fd0afb4462e6a7e94996ab981bb7d5b336997/images/logo.svg" class="logo" alt="logo">
+            <div class="right-nav">
+                <a th:href="@{/login}">Sign In</a>
+                <a th:href="@{/register}">Register</a>
+            </div>
+        </div> 
+    </header>
+    <div class="content">
+        <div class="section1">
+            <img src="https://github.com/hammercait/fylo-dark-theme-landing-page/blob/master/images/illustration-intro.png?raw=true" alt="people and folders">
+            <div class="mountain">
+                <div class="mountain-words">
+                    <h1>All your files in one secure location, accessible anywhere.</h1>
+                    <h2>Inventory management plays a vital part role in any business. Improper inventory management leads to a loss in the form of customer loss as well as dead stock. Hence, it is necessary for any business to effectively manage the supply channel from warehousing to the fulfillment of orders.</h2>
+                    <button class="get-started">Get Started</button>
+                </div>
+            </div>
+            </div>
+
+        <div class="section2">
+            <div class="features">
+                <div class="tile access">
+                    <img src="https://raw.githubusercontent.com/hammercait/fylo-dark-theme-landing-page/658fd0afb4462e6a7e94996ab981bb7d5b336997/images/icon-access-anywhere.svg" alt="access icon">
+                    <h3>Access your Storage Data, anywhere</h3>
+                    <p>The ability to use a smartphone, tablet, or computer to access your account means your Inventory data follows you everywhere.</p>
+                </div>
+                <div class="tile security">
+                    <img src="https://raw.githubusercontent.com/hammercait/fylo-dark-theme-landing-page/658fd0afb4462e6a7e94996ab981bb7d5b336997/images/icon-security.svg" alt="security icon">
+                    <h3>Security you can trust</h3>
+                    <p>2-factor authentication and user-controlled encryption are just a couple of the security features we allow to help secure your Data.</p>
+                </div>
+                <div class="tile real-time">
+                    <img src="https://raw.githubusercontent.com/hammercait/fylo-dark-theme-landing-page/658fd0afb4462e6a7e94996ab981bb7d5b336997/images/icon-collaboration.svg" alt="clock icon">
+                    <h3>Real-time collaboration</h3>
+                    <p>Securely share data with partners for live collaboration.Set up as many admins. No matter how big your shop or company is we can handle.</p>
+                </div>
+                <div class="tile storage">
+                    <img src="https://raw.githubusercontent.com/hammercait/fylo-dark-theme-landing-page/658fd0afb4462e6a7e94996ab981bb7d5b336997/images/icon-any-file.svg" alt="storage icon">
+                    <h3>Minimize Losses</h3>
+                    <p>
+Purchasing of excessive products can lead to higher dead stocks. Inventory tracking helps the business to know the fast-moving products of a business. Hence, it can save you from over-ordering the products.</p>
+                </div>
+            </div>
+        </div>
+        <div class="section3">
+            <img src="https://github.com/hammercait/fylo-dark-theme-landing-page/blob/master/images/illustration-stay-productive.png?raw=true" alt="people working">
+            <div class="sec3text">
+                <h1>Stay productive, wherever you are</h1>
+                <p>Never let location be an issue when accessing your files. Fylo has you covered for all your file storage needs.<br><br>Securely share data with partners for live collaboration.</p>
+                <a href="#">See how Fylo works    <img src="https://raw.githubusercontent.com/hammercait/fylo-dark-theme-landing-page/658fd0afb4462e6a7e94996ab981bb7d5b336997/images/icon-arrow.svg" alt="tiny arrow"></a>
+            </div>
+        </div>
+        <div class="section4">
+            <div class="quotes">
+                <img id="quotation" src="https://github.com/hammercait/fylo-dark-theme-landing-page/blob/master/images/bg-quotes.png?raw=true" alt="quotation mark">
+            </div>
+            <div class="quote-cards">
+                <div class="card">
+                    <p>Fylo will improve our team productivity by an order of magnitude. Expecting to making the switch, our team has become a well-oiled collaboration machine.</p>
+                        <img class="profile-pic" src="https://github.com/hammercait/fylo-dark-theme-landing-page/blob/master/images/profile-1.jpg?raw=true" alt="profile pic">
+                        <h5>Satish Patel</h5>
+                        <h6>Founder & CEO, xyz</h6>
+
+                </div>
+                <div class="card">
+                    <p>Fylo will improve our team productivity by an order of magnitude. Expecting to making the switch, our team has become a well-oiled collaboration machine.</p>
+                        <img class="profile-pic" src="https://github.com/hammercait/fylo-dark-theme-landing-page/blob/master/images/profile-2.jpg?raw=true" alt="profile pic">
+                        <h5>Bruce McKenzie</h5>
+                        <h6>Founder & CEO, xyz</h6>
+                </div>
+                <div class="card">
+                    <p>Fylo will improve our team productivity by an order of magnitude. Expecting to making the switch, our team will become a well-oiled collaboration machine.</p>
+
+                        <img class="profile-pic" src="https://github.com/hammercait/fylo-dark-theme-landing-page/blob/master/images/profile-3.jpg?raw=true" alt="profile pic">
+                        <h5>Iva Boyd</h5>
+                        <h6>Founder & CEO, xyz</h6>
+                </div>
+            </div>
+        </div>
+        <div class="section5">
+            <div class="contact-box">
+                <h1>Product Still In Beta</h1>
+                <p>You can check our Demo. Sign up for receiving mail when product is out! If you have any questions, our support team would be happy to help you. Contact details bottom of page</p>
+                <form action="#"><input type="email" id="email" name="email" placeholder="email@example.com"><input id="submit" type="submit" value="Get Started For Free"></form>
+
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="left">
+            <img id="logo"src="https://raw.githubusercontent.com/hammercait/fylo-dark-theme-landing-page/658fd0afb4462e6a7e94996ab981bb7d5b336997/images/logo.svg" alt="logo">
+            <div class="left2">
+                <img id="pin" src="https://raw.githubusercontent.com/hammercait/fylo-dark-theme-landing-page/658fd0afb4462e6a7e94996ab981bb7d5b336997/images/icon-location.svg" alt="location pin">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+            </div>
+        </div>  
+        <div class="contact">
+            <div><img src="https://raw.githubusercontent.com/hammercait/fylo-dark-theme-landing-page/658fd0afb4462e6a7e94996ab981bb7d5b336997/images/icon-phone.svg" alt="phone"><p>+1-543-123-4567</p></div>
+            <div><img src="https://raw.githubusercontent.com/hammercait/fylo-dark-theme-landing-page/658fd0afb4462e6a7e94996ab981bb7d5b336997/images/icon-email.svg" alt="email"><p>example@fylo.com</p></div>
+        </div>
+        <ul class="info">
+            <li>About Us</li>
+            <li>Contact Us</li>
+            <li>Jobs</li>
+            <li>Terms</li>
+            <li>Press</li>
+            <li>Privacy</li>
+            <li>Blog</li>
+        </ul>
+        <ul class="social">
+            <li><i class="fab fa-facebook-f"></i></li>
+            <li><i class="fab fa-twitter"></i></li>
+            <li><i class="fab fa-instagram"></i></li>
+        </ul>
+    </footer>
+
+</body>
+</html>

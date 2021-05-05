@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+}
+.container {
+    max-width: 420px;
+    margin: 50px auto;
+    display: flex;
+    flex-flow: column nowrap;
+    overflow: hidden;
+}
+.container .item {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Slabo 27px';
+    box-shadow: inset 0 0 0 500px rgba(0, 0, 0, .6);
+    font-size: 2em;
+    width: 100%;
+    flex: 1;
+    padding: 55px 0;
+    overflow: hidden;
+    transition: 0.5s all cubic-bezier(1, 0.8, 0.8, 1);
+}
+.container .item:hover {
+    box-shadow: inset 0 0 0 500px rgba(0, 0, 0, .4);
+    transform: scale(1.2);
+}
+.container .item:hover h3:not(.shop) {
+    transform: translateY(-100px);
+}
+.container .item:hover .shop {
+    transform: translateY(-30px);
+}
+.container .suits {
+    background: url(https://www.lowes.ca/-/media/lowes/images/ideas-how-tos/buying%20guides/refrigerator%20buying%20guide/refrigerator-buying-guide-hero-1015x571.jpg?h=571&w=1015&la=en-CA&hash=DC147165B14A83B2898F0672F7E0923D1ED4CE43) no-repeat top center / cover;
+}
+.container .shirts {
+    background: url(https://www.cruiseac.com/assets/images/banners/oPBaKRS2jyzeTIwLDEAMjpg.jpg) no-repeat top center / cover;
+}
+.container .shoes {
+    background: url(https://daamify.com/wp-content/uploads/2020/06/Webp.net-compress-image-16.jpg) no-repeat top center / cover;
+}
+
+h3,a, p {
+    margin: 0;
+    transition: 0.5s all ease-in;
+}
+a{
+	color:white;
+}
+.shop {
+    transform: translateY(100px);
+}
