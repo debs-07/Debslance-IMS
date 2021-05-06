@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/addItem.css" type="text/css">
+    <link rel="stylesheet" href="/css/admin/addItem.css" type="text/css">
 </head>
 <body>
-    <form th:action="@{/addItem-done}" th:object="${item}" method="post">
+    <form th:action="@{/admin/updateItem-done/{id}(id=${item.id})}" th:object="${item}" method="post">
     <div class="container">
-        <h1 class="form__title">New Product</h1>
-        <p class="form__subtitle">One More Model For Your Inventory</p>
+        <h1 class="form__title">Update Product</h1>
+        <p class="form__subtitle">Update Model For Your Inventory</p>
         <div action="" class="form">
           <div class="form__input--fullwidth--icon">
             <i class="form__input__icon fa fa-flask" aria-hidden="true"></i>
@@ -25,10 +25,10 @@
           <div class="form__input--fullwidth--icon">
             <i class="form__input__icon fa fa-check-circle" aria-hidden="true"></i>
           </div>
-          <button type="submit" class="form__button">Next</button>
+          <button type="submit" class="form__button">Update</button>
         </form>
         <div>
-          <button  class="form__button--secondary" th:href="@{/login}">Previous</button> 
+          <button  class="form__button--secondary" th:href="@{/admin/inventoryTable}">Previous</button> 
         </div>
         </div>
       </div>

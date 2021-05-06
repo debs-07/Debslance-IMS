@@ -10,7 +10,7 @@ $('.order').click(function(e) {
         }, 10000);
     }
 setTimeout(function() {
-   window.location.href = "/showPageShop" 
+   window.location.href = "/user/showPageShop" 
   }, 7000);
 });
 };

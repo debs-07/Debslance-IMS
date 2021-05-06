@@ -5,16 +5,16 @@
             <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
             <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
             <link rel="stylesheet" type="text/css" href="app.css">
-            <link rel="stylesheet" href="/css/inventory.css" type="text/css">
+            <link rel="stylesheet" href="/css/admin/inventory.css" type="text/css">
         </head>
         <body>
 
         <nav>
           <h2 class="brand">The path To Your Inventory</h2>
           <div class="nav-right large-screen-nav">
-             <a type="button" class="btn fourth" id="retailersHome" th:href="@{/retailersHome}">Home</a>
-              <a type="button" class="btn first" id="dashboard" th:href="@{/dashboard}">DashBoard</a>
-              <a type="button" class="btn fifth" id="inventoryTable" th:href="@{/inventoryTable}">Help</a>
+             <a type="button" class="btn fourth" id="retailersHome" th:href="@{/admin/home}">Home</a>
+              <a type="button" class="btn first" id="dashboard" th:href="@{/admin/dashboard}">DashBoard</a>
+              <a type="button" class="btn fifth" id="inventoryTable" th:href="@{/admin/inventoryTable}">Help</a>
           </div>
           <div class="nav-right small-screen-nav">
             <i class="las la-bars"></i>
@@ -28,8 +28,8 @@
                     <div id="content">
                     <h1>Your Data Is Safe With Us</h1>
                     
-                    <a type="button" class="btn fourth" id="addItem" th:href="@{/add}">Add Item</a>
-                    <a type="button" class="btn fifth" id="inventoryTable" th:href="@{/inventoryTable}">View Items</a>
+                    <a type="button" class="btn fourth" id="addItem" th:href="@{/admin/add}">Add Item</a>
+                    <a type="button" class="btn fifth" id="inventoryTable" th:href="@{/admin/inventoryTable}">View Items</a>
                     </div>
                     
                 </div>
