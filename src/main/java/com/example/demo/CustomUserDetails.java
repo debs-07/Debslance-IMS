@@ -44,6 +44,11 @@ public class CustomUserDetails implements UserDetails {
     public String getUsername() {
     	return this.user.getEmail();
     }
+    
+    
+    public String getEmail() {
+    	return this.user.getUsername();
+    }
 
     @Override
     public boolean isAccountNonExpired() {
@@ -64,4 +69,5 @@ public class CustomUserDetails implements UserDetails {
     public boolean isEnabled() {
         return this.user.getActive() == 1;
     }
+    
 }

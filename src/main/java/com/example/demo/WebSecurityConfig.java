@@ -109,29 +109,32 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(authenticationProvider());
     }
 
+    @Autowired
+	private RoleAuthenticationSuccessHandler successHandler;
+    
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/","/admin/home","/register","/register-done","admin/dashboardPre","/user/home","/user/register","/user-register-done").permitAll()
+                .antMatchers("/","/admin/home","/register","/register-done","admin/dashboardPre","/user/home","/user/register","/user-register-done","/user/home","/admin/home").permitAll()
                 .antMatchers("/user/**").authenticated()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/delivery/**").hasAnyRole("ADMIN", "DELIVERY")
 //                .antMatchers("/api/public/test1").hasAuthority("ACCESS_TEST1")
 //                .antMatchers("/api/public/test2").hasAuthority("ACCESS_TEST2")
-//                .antMatchers("/api/public/users").hasRole("ADMIN")
+                .antMatchers("/api/send-text").hasRole("ADMIN")
                 .and()
-                .formLogin()
+                .formLogin().successHandler(successHandler)
                 .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/",true)
+                
                 .loginPage("/login").permitAll()
                 .usernameParameter("email")
                 .passwordParameter("password")
                 
                 .and()
-                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login")
-                .and()
-                .rememberMe().tokenValiditySeconds(2592000).key("mySecret!").rememberMeParameter("checkRememberMe");
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/");
+//                .and()
+//                .rememberMe().tokenValiditySeconds(2592000).key("mySecret!").rememberMeParameter("checkRememberMe");
 
     }
 

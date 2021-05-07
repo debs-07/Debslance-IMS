@@ -269,6 +269,8 @@ nav {
 	 margin-left: 0;
 	 margin-right: auto;
 	 padding: 0.4em 0.8em;
+	 text-decoration: none;
+	 letter-spacing: 2px;
 }
  .btn:hover {
 	 background: #74c69d;

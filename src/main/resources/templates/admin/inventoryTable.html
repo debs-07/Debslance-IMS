@@ -31,6 +31,7 @@
                     <th>costPrice</th>
                     <th>sellPrice</th>
                     <th>Update</th>
+                    <th>Update</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -41,6 +42,7 @@
                         <td th:text="${item.costPrice}"></td>
                         <td th:text="${item.sellPrice}"></td>
                         <td ><a type="button" class="btn first" id="updateButton" th:href="@{/admin/update/{id}(id=${item.id})}">Update</a></td>
+                        <td ><a type="button" class="btn first" id="updateButton" th:href="@{/api/send-text/{id}(id=${item.id})}">Update</a></td>
                         </tr>
                         </tbody>
             </table>

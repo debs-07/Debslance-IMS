@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 
 
 @Controller
@@ -36,10 +36,20 @@ public class AppController {
 	public String home() {
 		return "home";
 	}
+	@GetMapping("/home/{name}")
+	public String commonLandingPage(@PathVariable("name") String name) {
+		if(name.equals("user"))
+		return "user/home";
+		else if(name.equals("admin"))
+		return "admin/home";
+		System.out.print(name);
+		return "delivery/home";
+	}
 	@GetMapping("/login")
 	public String login() {
 		return "login";
 	}
+	
  
   	@GetMapping("/register")
   	public String register(Model model) {
@@ -70,6 +80,6 @@ public class AppController {
   		  user.setPermissions("");
   		 
   		    userRepo.save(user);
-  		return "user/showPageShop";
+  		return "user/plans";
 	}}
 

@@ -121,8 +121,8 @@ public class AdminController {
   		return "admin/inventory";
   	}
 
-      @PutMapping("/items")
-      public Item update(@RequestBody Item itemObj) {
-      	return itemRepo.save(itemObj);
+      @GetMapping("/queries")
+      public String update() {
+      	return "queries";
       }
 }

@@ -5,9 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+     <link rel="stylesheet" href="/css/user/home.css" type="text/css">
+    <script src="/javascript/user/home.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 </head>
 <body>
-    <a type="button" th:href="@{/user/login}">Login</a>
-    <a type="button" th:href="@{/userRegister}">Register</a>
+
+    <div  class="header">
+  <h1 class="header__logo" sec:authorize="hasRole('ROLE_USER')">
+    <a href="#">
+      <div class="mastercard">
+        <div class="mastercard__part red"></div>
+        <div class="mastercard__part orange"></div>
+        <div class="mastercard__copy">
+          
+          <span class="js-letters" sec:authentication="principal.email">Username</span>
+        </div>
+      </div>
+    </a>
+  </h1>
+      
+  <div class="nav" > 
+  <ul>
+    <li><a  sec:Authorize="isAuthenticated()"   th:href="@{/user/cartView}">Cart</a></li>
+    <li><a  sec:Authorize="isAuthenticated()" th:href="@{/user/showPageShop}">Shop</a></li>
+    <li><a  sec:Authorize="isAuthenticated()" th:href="@{/logout}">Sign Out</a></li>
+    <li><a  sec:Authorize="isAnonymous()"     th:href="@{/userRegister}">Register</a></li>
+    <li><a  sec:Authorize="isAnonymous()"     th:href="@{/login}">Sign In</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="hero">
+  <div class="hero__cover">
+    <div class="hero__image"></div>
+  </div>  
+
+  <div class="hero__strap">
+    <h2 class="hero__title">
+      <span class="js-letters">Shop the year's</span>
+      <span class="js-letters">most exciting</span>
+      <span class="js-letters">Sales</span>
+    </h2>
+    <h3 class="hero__subtitle">Black Friday</h3>
+    <a class="button" href="#">Coming Soon</a>
+  </div>
+
+</div>
+
 </body>
 </html>
