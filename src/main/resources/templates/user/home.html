@@ -21,6 +21,7 @@
         <div class="mastercard__copy">
           
           <span class="js-letters" sec:authentication="principal.email">Username</span>
+          <span id="two" class="js-letters" sec:authentication="principal.subscription"></span>
         </div>
       </div>
     </a>
@@ -29,6 +30,7 @@
   <div class="nav" > 
   <ul>
     <li><a  sec:Authorize="isAuthenticated()"   th:href="@{/user/cartView}">Cart</a></li>
+    <li><a  th:href="@{/user/plans}">Plans</a></li>
     <li><a  sec:Authorize="isAuthenticated()" th:href="@{/user/showPageShop}">Shop</a></li>
     <li><a  sec:Authorize="isAuthenticated()" th:href="@{/logout}">Sign Out</a></li>
     <li><a  sec:Authorize="isAnonymous()"     th:href="@{/userRegister}">Register</a></li>
@@ -46,7 +48,7 @@
   <div class="hero__strap">
     <h2 class="hero__title">
       <span class="js-letters">Shop the year's</span>
-      <span class="js-letters">most exciting</span>
+      <span class="js-letters">most exciting</span> 
       <span class="js-letters">Sales</span>
     </h2>
     <h3 class="hero__subtitle">Black Friday</h3>

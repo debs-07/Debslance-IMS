@@ -1,184 +1,158 @@
-html{
-	height: 100%;
-	}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap");
 
-body {
-	margin: 0;
-	padding: 0;
-	font-family: 'Arial', sans-serif;
-	background: linear-gradient(#141e30, #243b55);	
-}
-
-.login-box {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 400px;
-	padding: 40px;
-	transform: translate(-50%, -50%);
-	background: rgba(0,0,0,.5);
-	box-sizing: border-box;
-	box-shadow: 0 15px 25px rgba(0,0,0,.6);
-	border-radius: 10px;
-}
-
-.login-box h2 {
-	margin: 0 0 30px;
-	padding: 0;
-	color: #F1EEE6;
-	text-align: center;
-}
-
-.login-box .user-box {
-	position: relative;
-}
-
-.login-box .user-box input {
-	width: 100%;
-	padding: 10px 0;
-	font-size: 16px;
-	color: #F1EEE6;
-	margin-bottom: 30px;
-	border: none;
-	border-bottom: 1px solid #F1EEE6;
-	outline: none;
-	background: transparent;
-}
-
-.login-box .user-box label {
-	position: absolute;
-	top: 0;
-	left: 0;
-	padding: 10px 0;
-	font-size: 16px;
-	color: #F1EEE6;
-	pointer-events: none;
-	transition: .5s;
-}
-
-.login-box .user-box input:focus ~ label, .login-box .user-box input:valid ~ label {
-	top: -20px; 
-	left: 0px; 
-	color: #03E9F4;
-	font-size: 12px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background:black;
 }
 
 
-.login-box form a {
-	position: relative;
-	display: inline-block;
-	padding: 1px 2px;
-	color: #03E9F4;
-	font-size: 16px;
-	text-decoration: none;
-	text-transform: uppercase;
-	overflow: hidden;
-	transition: .5s;
-	margin-top: 40px;
-	letter-spacing: 4px;
+.container {
+  background: linear-gradient(to bottom, #f4f4f4, #f1f1f1);
+  height: 100vh;
+  display: grid;
+  font-family: "poppins", Arial, Helvetica, sans-serif;
+  place-items: center;
+  background-color: black;
+  background:url(https://i.pinimg.com/originals/fa/38/31/fa3831976bbbcdbefac1a336b91246c1.jpg);
+  background:cover;
+}
+body{
+background:black;	
 }
 
-.login-box form a:hover {
-	background: #03E9F4;
-	color: #F1EEE6;
-	border-radius: 5px;
-	box-shadow: 0 0 5px #03E9F4,
-							 0 0 25px #03E9F4,
-							 0 0 50px #03E9F4,
-							 0 0 100px #03E9F4;
+a {
+  text-decoration: none;
+  color: #000;
 }
 
-.login-box a span {
-	position: absolute;
-	display: block;
-}
 
-.login-box a span:nth-child(1) {
-  top: 0;
-  left: -100%;
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(0, 0, 0);
   width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #03e9f4);
-  animation: btn-anim1 1s linear infinite;
+  max-width: 400px;
+  padding: 2em;
+  border-radius: 20px;
+  box-shadow: -40px -40px 80px rgb(0, 0, 0),
+    40px 40px 80px rgba(0, 0, 0, 0.25);
 }
 
-@keyframes btn-anim1 {
-  0% {
-    left: -100%;
-  }
-  50%,100% {
-    left: 100%;
-  }
+.card-title {
+  font-size: 40px;
+  color: #565656;
+  align-items: center;
 }
 
-.login-box span:nth-child(2) {
-	top: -100%;
-	right: 0;
-	width: 2px;
-	height: 100%;
-	background: linear-gradient(180deg, transparent, #03E9F4);
-	animation: btn-anim2 1s linear infinite;
-	animation-delay: .25s;
+.card-subtitle {
+  color: #565656;
 }
 
-@keyframes btn-anim2 {
-	0%{
-		top: -100%;
-	}
-	50%,100% {
-		top: 100%;
-	}
+.card-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 1.5rem 0 1rem 0;
 }
 
-.login-box span:nth-child(3){
-	bottom: 0;
-	right: -100%;
-	width: 100%;
-	height: 2px;
-	background: linear-gradient(270deg, transparent, #03E9F4);
-	animation: btn-anim3 1s linear infinite;
-	animation-delay: .5s;
+.card-input-container {
+  position: relative;
+  margin: 0.5rem 0 2rem;
+  width: 100%;
 }
 
-@keyframes btn-anim3 {
-	0%{
-		right: -100%;
-	}
-	50%,100% {
-		right: 100%;
-	}
+.card-form label {
+  color: rgb(255, 255, 255);
 }
 
-.login-box span:nth-child(4) {
-	bottom: -100%;
-	left: 0;
-	width: 2px;
-	height: 100%;
-	background: linear-gradient(360deg, transparent, #30E9F4);
-	animation: btn-anim4 1s linear infinite;
-	animation-delay: .75s;
+.card-input-container input::placeholder {
+  color: rgb(255, 255, 255);
 }
 
-@keyframes btn-anim4 {
-  0% {
-    bottom: -100%;
-  }
-  50%,100% {
-    bottom: 100%;
-  }
+.card-input-container input,
+.card-button {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  font-family: "poppins", Arial, Helvetica, sans-serif;
+  color:white;
 }
 
-.button{
-	position: relative;
-    display: inline-block;
-	padding: 10px 20px;
-    color: #03E9F4;
-    font-size: 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    overflow: hidden;
-    letter-spacing: 4px;
-	font-family: 'Arial', sans-serif;
-	background:rgba(0,0,0,.5);
-	border:none;
+.card-input-container input {
+  padding: 1em 2em 1em 4em;
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  background: rgb(0, 0, 0);
+  box-shadow: -10px -10px 20px rgb(0, 0, 0),
+    10px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-input-container input:focus {
+  box-shadow: inset -5px -5px 10px rgb(0, 0, 0),
+    inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-button {
+  background: rgb(255, 255, 255);
+  padding: 1em;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+}
+
+
+.card-forgot-password {
+  text-align: center;
+  font-size: 12px;
+  color: #b6b6b6;
+}
+
+.card-forgot-password a {
+  color: #565656;
+}
+.card-forgot-password a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.card-input-container::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  position: absolute;
+  left: 1.3rem;
+  top: 0.8rem;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+}
+
+.card-input-container.username::after {
+  content: "\f007";
+}
+
+.card-input-container.password::after {
+  content: "\f023"
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active
+{
+ -webkit-box-shadow: 0 0 0 30px rgb(0, 0, 0) inset !important;
+}
+
+/*Change text in autofill textbox*/
+input:-webkit-autofill
+{
+ -webkit-text-fill-color: white !important;
 }

@@ -80,6 +80,6 @@ public class AppController {
   		  user.setPermissions("");
   		 
   		    userRepo.save(user);
-  		return "user/plans";
+  		return "user/home";
 	}}
 

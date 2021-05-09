@@ -1,3 +1,4 @@
+
 @import url(https://fonts.googleapis.com/css?family=Poppins:400);
  @import url(https://fonts.googleapis.com/css?family=Raleway:100,200);
  .mastercard {
@@ -7,6 +8,7 @@
 }
  * {
 	 box-sizing: border-box;
+	 
 }
  body {
 	 margin: 0;
@@ -14,11 +16,14 @@
 	 min-height: 500px;
 	 background-color: #1d1d1b;
 	 color: #f5f2ed;
+	 background:url(https://wallpaperboat.com/wp-content/uploads/2020/11/10/60094/black-friday-14.jpg);
+     background-size: cover;
 }
  a {
 	 color: #f5f2ed;
 	 text-decoration: none;
 }
+
  .button {
 	 position: relative;
 	 display: inline-block;
@@ -80,7 +85,7 @@
 	 position: relative;
 	 display: flex;
 	 align-items: flex-end;
-	 justify-content: flex-end;
+	 justify-content: flex-start;
 	 height: 100%;
 	 font-family: 'Raleway', sans-serif;
 	 font-weight: 100;
@@ -130,6 +135,7 @@
 
 
 ul { 
+	
   margin: 10px auto 0; 
   padding: 0; 
   list-style: none; 
@@ -174,7 +180,9 @@ a:hover:after {
 	}
 }
 
-
+#two{
+	color:#FF8C00;
+}
 
 
 

@@ -32,9 +32,9 @@
        Scroll For Products
       </p>
     </div>
-    <div class="arrow"><svg width="24" height="24" viewBox="0 0 24 24">
+    <a class="arrow" th:href="@{/user/displayProducts}"><svg width="24" height="24" viewBox="0 0 24 24">
     <path d="M11,4H13V16L18.5,10.5L19.92,11.92L12,19.84L4.08,11.92L5.5,10.5L11,16V4Z"></path>
-  </svg></div>
+  </svg></a>
   </header>
   <main class="container page-content">
     <h2 class="page-title">Products</h2>
@@ -46,14 +46,15 @@
         <div class="card__info" >
         <form th:action="@{/user/cart/{id}(id=${item.id})}" method="GET">
         
-          <h4 th:text="${item.name}" class="card__title"></h4>
+          <h4 th:text="${item.model}" class="card__title"></h4>
           
           
           <p th:text="${item.type}" class="card__text" ></p>
          
           
-          <p th:text="${item.sellPrice}" class="card__price"></p>
-          
+         
+          <p th:text="${item.sp}" class="card__price"></p>
+          <input type="number" name="units" id="units">
           
           <button class="button btn fifth" type="submit">Buy Now</button>
            

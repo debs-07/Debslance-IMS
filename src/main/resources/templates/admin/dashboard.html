@@ -1,176 +1,157 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="/css/admin/dashboard.css" type="text/css">
-    <title>Bootstrap Dashboard</title>
-</head>
-
-<body>
-    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Dashboard</a>
-        <input type="text" class="form-control form-control-primary w-100" placeholder="Search...">
-        <div class="nav-right large-screen-nav">
-           
-            <ul class="navbar-nav px-3">
-                <li class="nav-item text-nowrap">
-                   <a type="button" class="btn first" id="logout" th:href="@{/logout}">LOGOUT</a>
-                <a type="button" class="btn fourth" id="inventory" th:href="@{/admin/inventory}">Inventory</a>
-                <a type="button" class="btn fifth" id="deleteAccount" th:href="@{/user/}">Delete Account</a>
-                </li>
-            </ul>
-        </div>
-        <div class="nav-right small-screen-nav">
-          <i class="las la-bars"></i>
-        </div>
-      </nav>
-
     
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-2 bg-light d-none d-md-block sidebar">
-                <div class="left-sidebar">
-                    <ul class="nav flex-column sidebar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" th:href="@{/admin/stocksGraph}">
-                                <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20"
-                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                        d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
-                                        clip-rule="evenodd" /></svg>
-                                Stocks Graph
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/admin/chooseProducts}">
-                                <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20"
-                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                        d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
-                                        clip-rule="evenodd" /></svg>
-                                View Category
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20"
-                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                        d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
-                                        clip-rule="evenodd" /></svg>
-                                Orders
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20"
-                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                        d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
-                                        clip-rule="evenodd" /></svg>
-                                Invoices
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <svg class="bi bi-chevron-right" width="16" height="16" viewBox="0 0 20 20"
-                                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                        d="M6.646 3.646a.5.5 0 01.708 0l6 6a.5.5 0 010 .708l-6 6a.5.5 0 01-.708-.708L12.293 10 6.646 4.354a.5.5 0 010-.708z"
-                                        clip-rule="evenodd" /></svg>
-                                Reports
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                <h3>Products</h3>
-                <hr>
-                <div class="table-responsive">
-                    <table class="table table-hover ">
-                    <caption>List of products</caption>
-                        <thead >
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Units</th>
-                                <th scope="col">Types</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="item :${items}" th:if="${item.id} <= 5">
-                        <td th:text="${item.name}"></td>
-                        <td th:text="${item.unit}"></td>
-                        <td th:text="${item.type}"></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js"></script>
+    <script src="/javascript/admin/dashboard.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
-                <h3>Invoice</h3>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Invoice #184382</h5>
-                                <p class="card-text">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor
-                                    mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-                                <a href="#" class="btn btn-info">Print</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Invoice #184386</h5>
-                                <p class="card-text">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor
-                                    mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-                                <a href="#" class="btn btn-info">Print</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+</head>
+<body>
+   
+<div class="sidebar">
+  <h1><i class="fa fa-bars push"></i>My <span class="color">Menu</span></h1>
+    <ul>
+    <li><a href="#"><i class="fa fa-dashboard push"></i>Dashboard<i class="fa fa-angle-right"></i></a><span class="hover"></span>
+    </li>
+    <li><a href="#"><i class="fa fa-user push"></i>Users<i class="fa fa-angle-right"></i></a><span class="hover"></span>
+      <ul class="sub-menu">
+         <li><a href="#">Add User<i class="fa fa-angle-right"></i></a><span class="hover"></span></li>
+         <li><a href="#">Manage Users<i class="fa fa-angle-right"></i></a><span class="hover"></span></li>
+      </ul>
+    </li>
+    <li><a href="#"><i class="fa fa-cog push"></i>Settings<i class="fa fa-angle-right"></i></a><span class="hover"></span>
+     <ul class="sub-menu">
+         <li><a href="#">Dashboard Settings<i class="fa fa-angle-right"></i></a><span class="hover"></span></li>
+         <li><a href="#">Profile Settings<i class="fa fa-angle-right"></i></a><span class="hover"></span></li>
+        <li><a href="#">Manage Menu<i class="fa fa-angle-right"></i></a><span class="hover"></span></li>
+       <li><a href="#">User Profiles<i class="fa fa-angle-right"></i></a><span class="hover"></span></li>
+      </ul></li>
+    <li><a href="#"><i class="fa fa-picture-o push"></i>appearance<i class="fa fa-angle-right"></i></a><span class="hover"></span>
+        <ul class="sub-menu">
+         <li><a href="#">Change Theme<i class="fa fa-angle-right"></i></a><span class="hover"></span>
+          </li>
+         <li><a href="#">Theme Options<i class="fa fa-angle-right"></i></a><span class="hover"></span></li>
+      </ul>
+    </li>
+    <li><a href="#"><i class="fa fa-file push"></i>Information<i class="fa fa-angle-right"></i></a><span class="hover"></span>
+        <ul class="sub-menu">
+         <li><a href="#">Latest News<i class="fa fa-angle-right"></i></a><span class="hover"></span>
+          </li>
+         <li><a href="#">Recent Articles<i class="fa fa-angle-right"></i></a><span class="hover"></span></li>
+      </ul>
+    </li>
+    <li><a th:href="@{/admin/inventoryTable}"><i class="fa fa-plane push"></i>Contact<i class="fa fa-angle-right"></i></a><span class="hover"></span></li>
+  </ul>
+</div>
 
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Invoice #184389</h5>
-                                <p class="card-text">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor
-                                    mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-                                <a href="#" class="btn btn-info">Print</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Invoice #184391</h5>
-                                <p class="card-text">Donec nec justo eget felis facilisis fermentum. Aliquam porttitor
-                                    mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-                                <a href="#" class="btn btn-info">Print</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-            </main>
-        </div>
+<div class="charts-container cf">
+  <div class="chart" id="graph-1-container">
+    <h2 class="title">Current Stock</h2>
+    <div class="chart-svg">
+      <svg class="chart-line" id="chart-1" viewBox="0 0 80 40">
+        <defs>
+          <clipPath id="clip" x="0" y="0" width="80" height="40" >
+            <rect id="clip-rect" x="-80" y="0" width="77" height="38.7"/>
+          </clipPath>
+
+        <linearGradient id="gradient-1">
+            <stop offset="0" stop-color="#00d5bd" />
+            <stop offset="100" stop-color="#24c1ed" />
+        </linearGradient>
+
+        <linearGradient id="gradient-2">
+            <stop offset="0" stop-color="#954ce9" />
+            <stop offset="0.3" stop-color="#954ce9" />
+            <stop offset="0.6" stop-color="#24c1ed" />
+            <stop offset="1" stop-color="#24c1ed" />
+        </linearGradient>
+
+
+          <linearGradient id="gradient-3" x1="0%" y1="0%" x2="0%" y2="100%">>
+            <stop offset="0" stop-color="rgba(0, 213, 189, 1)" stop-opacity="0.07"/>
+            <stop offset="0.5" stop-color="rgba(0, 213, 189, 1)" stop-opacity="0.13"/>
+            <stop offset="1" stop-color="rgba(0, 213, 189, 1)" stop-opacity="0"/>
+        </linearGradient>
+
+
+          <linearGradient id="gradient-4" x1="0%" y1="0%" x2="0%" y2="100%">>
+            <stop offset="0" stop-color="rgba(149, 76, 233, 1)" stop-opacity="0.07"/>
+            <stop offset="0.5" stop-color="rgba(149, 76, 233, 1)" stop-opacity="0.13"/>
+            <stop offset="1" stop-color="rgba(149, 76, 233, 1)" stop-opacity="0"/>
+        </linearGradient>
+          
+    </defs>
+      </svg>
+      
+      <p th:each="item :${items}">
+      <script th:inline="javascript">
+         var chart_1= /*[[${item.unit}]]*/"hello";
+         add1(chart_1);
+      </script>
+      </p>
+ 
+       <p th:each="user :${users}">
+      <script th:inline="javascript">
+          var chart_2= /*[[${user.age}]]*/"hello";
+          console.log();
+          add2(chart_2);
+      </script>
+      </p>     
+      
+      
+      <h3 class="valueX">Items</h3>
     </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script></script>
+    <div class="chart-values">
+      <p class="h-value">1689h</p>
+      <p class="percentage-value"></p>
+      <p class="total-gain"></p>
+    </div>
+    <div class="triangle green"></div>
+  </div>
+  <div class="chart" id="graph-2-container">
+    <h2 class="title">Hours worked</h2>
+    <div class="chart-svg">
+      <svg class="chart-line" id="chart-2" viewBox="0 0 80 40">
+      </svg>
+      <h3 class="valueX">time</h3>
+    </div>
+    <div class="chart-values">
+      <p class="h-value">322h</p>
+      <p class="percentage-value"></p>
+      <p class="total-gain"></p>
+    </div>
+    <div class="triangle red"></div>
+  </div>
+  <div class="chart circle" id="circle-1">
+    <h2 class="title">IBApps Website</h2>
+    <div class="chart-svg align-center">
+      <h2 class="circle-percentage"></h2>
+      <svg class="chart-circle" id="chart-3" width="50%" viewBox="0 0 100 100">
+        <path class="underlay" d="M5,50 A45,45,0 1 1 95,50 A45,45,0 1 1 5,50"/>
+      </svg>
+    </div>
+    <div class="triangle green"></div>
+  </div>
+  <div class="chart circle" id="circle-2">
+    <h2 class="title">IBApps Website</h2>
+    <div class="chart-svg align-center">
+      <h2 class="circle-percentage"></h2>
+      <svg class="chart-circle" id="chart-4" width="50%" viewBox="0 0 100 100">
+        <path class="underlay" d="M5,50 A45,45,0 1 1 95,50 A45,45,0 1 1 5,50"/>
+      </svg>
+    </div>
+    <div class="triangle red"></div>
+  </div>
+</div>
 </body>
 
 </html>

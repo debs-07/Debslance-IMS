@@ -26,30 +26,22 @@
                   <img src=https://venturebeat.com/wp-content/uploads/2016/01/sam_fridge.jpg?w=1200&strip=all />
                 </div>
                 <div class="td_item item_name">
-                  <label class="main" th:text="${item.name}"></label>
+                  <label class="main" th:text="${item.model}"></label>
                   <label class="sub">Ref. 007891987</label>
                 </div>
                 <div class="td_item item_color">
-                  <label>Blue</label>
+                  <label th:text="${item.id}"></label>
                 </div>
-                <div class="td_item item_qty">
-                  <select>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
+                <div class="td_item item_color">
+                  <label th:text="${number}"></label>
                 </div>
                 <div class="td_item item_price">
-                  <label th:text="${item.sellPrice}"></label>
+                  <label th:text="${item.sp}"></label>
                 </div>
                 <div class="td_item item_remove">
                   <span class="material-icons-outlined">close</span>
                 </div>
               </div>
-      
-      
             </div>
             <div class="footer">
               <div class="back_cart">
@@ -60,11 +52,15 @@
               </div>
               <div class="subtotal">
                 <label>Subtotal:₹ </label>
-                <strong th:text=${item.sellPrice}>$2451.00</strong>
+                <strong th:text=${item.sp}>$2451.00</strong>
               </div>
             </div>
           </div>
         </div>
+        
+    <script th:inline="javascript">
+          var id= /*[[${item.id}]]*/"hello";
+          </script>
       
         <div class="cart_details">
           <div class="cart_title">

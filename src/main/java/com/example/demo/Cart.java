@@ -13,8 +13,8 @@ public class Cart {
 	private Long id;
 	private Long userId;
 	private String model;
-	private Long tsp;
-	private Long tcp;
+	private Long sp;
+	private Long cp;
 	public Long getId() {
 		return id;
 	}
@@ -33,17 +33,18 @@ public class Cart {
 	public void setModel(String model) {
 		this.model = model;
 	}
-	public Long getTsp() {
-		return tsp;
+	public Long getSp() {
+		return sp;
 	}
-	public void setTsp(Long tsp) {
-		this.tsp = tsp;
+	public void setSp(Long sp) {
+		this.sp = sp;
 	}
-	public Long getTcp() {
-		return tcp;
+	public Long getCp() {
+		return cp;
 	}
-	public void setTcp(Long tcp) {
-		this.tcp = tcp;
+	public void setCp(Long cp) {
+		this.cp = cp;
 	}
+	
 	
 }

@@ -25,20 +25,20 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                    <th>Name</th>
+                    <th>Model</th>
                     <th>Unit</th>
-                   
+                    <th>colour</th>
                     <th>costPrice</th>
                     <th>sellPrice</th>
                     </tr>
                     </thead>
                     <tbody>
                         <tr class="contents" th:each="item :${items}" th:if="${item.type} == 'ac'">
-                        <td th:text="${item.name}"></td>
+                        <td th:text="${item.model}"></td>
                         <td th:text="${item.unit}"></td>
-                        
-                        <td th:text="${item.costPrice}"></td>
-                        <td th:text="${item.sellPrice}"></td>
+                        <td th:text="${item.color}"></td>
+                        <td th:text="${item.cp}"></td>
+                        <td th:text="${item.sp}"></td>
                         </tr>
                         </tbody>
             </table>

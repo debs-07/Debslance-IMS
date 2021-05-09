@@ -10,7 +10,9 @@ $('.order').click(function(e) {
         }, 10000);
     }
 setTimeout(function() {
-   window.location.href = "/user/showPageShop" 
+	const ID=parseInt(id);
+   window.location.href = `/user/modifyStock/${ID}`;
+   console.log("hello"); 
   }, 7000);
 });
 };

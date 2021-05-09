@@ -116,13 +116,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/","/admin/home","/register","/register-done","admin/dashboardPre","/user/home","/user/register","/user-register-done","/user/home","/admin/home").permitAll()
+                .antMatchers("/","/admin/home","/register","/register-done","admin/dashboardPre","/user/home","/user/register","/user-register-done","/user/home","/admin/home","/api/send").permitAll()
                 .antMatchers("/user/**").authenticated()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/delivery/**").hasAnyRole("ADMIN", "DELIVERY")
 //                .antMatchers("/api/public/test1").hasAuthority("ACCESS_TEST1")
 //                .antMatchers("/api/public/test2").hasAuthority("ACCESS_TEST2")
-                .antMatchers("/api/send-text").hasRole("ADMIN")
+//                .antMatchers("/api/send").hasRole("USER")
                 .and()
                 .formLogin().successHandler(successHandler)
                 .loginProcessingUrl("/login")

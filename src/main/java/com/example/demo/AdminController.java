@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +21,9 @@ public class AdminController {
 	private UserRepository userRepo;
 	@Autowired
 	private ItemRepository itemRepo;
-	
+//	@Value("${tomtom.apikey}")
+//	 private String tomTomApiKey;
+//	
 	
 	@GetMapping("/login")
 	public String login() {
@@ -66,9 +69,10 @@ public class AdminController {
   	}
   	
   	@GetMapping("/dashboard")
-  	public ModelAndView dashboard(Item items) {
+  	public ModelAndView dashboard(Item items,User user) {
   		ModelAndView mav=new ModelAndView("/admin/dashboard");
   		mav.addObject("items",itemRepo.findAll());
+  		mav.addObject("users",userRepo.findAll());
   		return mav;
   	}
   	
@@ -112,11 +116,11 @@ public class AdminController {
   	@PostMapping("/updateItem-done/{id}")
   	public String updateItem(@PathVariable(name = "id") Long id,Item item) {
   		Item upItem = itemRepo.findById(id);
-  		upItem.setName(item.getName());
+  		upItem.setModel(item.getModel());
   		upItem.setUnit(item.getUnit());
   		upItem.setType(item.getType());
-  		upItem.setCostPrice(item.getCostPrice());
-  		upItem.setSellPrice(item.getSellPrice());
+  		upItem.setCp(item.getCp());
+  		upItem.setSp(item.getSp());
   		itemRepo.save(upItem);
   		return "admin/inventory";
   	}
