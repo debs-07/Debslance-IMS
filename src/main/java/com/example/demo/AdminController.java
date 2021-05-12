@@ -63,11 +63,6 @@ public class AdminController {
   		return mav;
   	}
   	
-  	@GetMapping("/dashboardPre")
-  	public String dashboard() {
-  		return "/admin/dashboardPre";
-  	}
-  	
   	@GetMapping("/dashboard")
   	public ModelAndView dashboard(Item items,User user) {
   		ModelAndView mav=new ModelAndView("/admin/dashboard");
@@ -80,6 +75,13 @@ public class AdminController {
   	public ModelAndView stocksGraph(Item items) {
   		ModelAndView mav=new ModelAndView("admin/stocksGraph");
   		mav.addObject("items",itemRepo.findAll());
+  		return mav;
+  	}
+  	
+	@GetMapping("/rating/{id}")
+  	public ModelAndView rating(@PathVariable(name = "id") Long id,Item items) {
+  		ModelAndView mav=new ModelAndView("admin/rating");
+  		mav.addObject("item",itemRepo.findById(id));
   		return mav;
   	}
   	

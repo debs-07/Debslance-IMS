@@ -1,3 +1,106 @@
+/* MENU STYLES */
+ .menu-header {
+	 height: 70px;
+	 border-bottom: 1px solid #dee2e6;
+}
+ .menu-header .h2 {
+	 font-size: 1.5rem;
+}
+ @media (min-width: 576px) {
+	 .menu-header {
+		 height: 75px;
+	}
+	 .menu-header .h2 {
+		 font-size: 2rem;
+	}
+}
+ .drawer {
+	 position: fixed;
+	 top: 0;
+	 left: 0;
+	 flex: 0 0 auto;
+	 background-color: rgb(0, 0, 0);
+	 background-color: rgb(0, 0, 0);
+	 width: 240px;
+	 height: 100vh;
+	 -webkit-transform: translateX(-105%);
+	 transform: translateX(-105%);
+	 box-shadow: 6px 0 6px -3px #333;
+	 z-index: 90;
+	 overflow: auto;
+}
+ .drawer .drawer-header {
+	 height: 70px;
+	 display: flex;
+	 align-items: center;
+	 border-bottom: 1px solid rgb(0, 0, 0);
+}
+ @media (min-width: 576px) {
+	 .drawer .drawer-header {
+		 height: 75px;
+	}
+}
+ .drawer .menu-container .menu-item {
+	 padding: 0.5rem 1rem;
+	 background-color: rgb(0, 0, 0);
+	 color: #20c997;
+	 color: #199d76;
+	 display: block;
+	 font-weight: 500;
+	 font-size: 1.125rem;
+	 cursor: pointer;
+	 text-decoration: none;
+}
+ .drawer .menu-container .menu-item:hover {
+	 background-color: #e9ecef;
+	 color: #199d76;
+}
+ .drawer .menu-container .menu-item:active, .drawer .menu-container .menu-item:focus, .drawer .menu-container .menu-item.active {
+	 background-color: #e9ecef;
+	 color: #127155;
+}
+ .drawer .menu-container .divider {
+	 border-bottom: 1px solid #dee2e6;
+}
+ .menu-button {
+	 position: fixed;
+	 z-index: 100;
+	 top: 0;
+	 left: 0;
+	 -webkit-transform: translate(15px, 15px);
+	 transform: translate(15px, 15px);
+	 font-size: 1.45rem;
+	 background-color: rgb(0, 0, 0);
+	 background-color: #e9ecef;
+	 padding: 2px;
+	 border-radius: 50%;
+	 border-color: #ced4da;
+	 width: 42px;
+	 box-shadow: 0.15rem 0.25rem 0.35rem rgba(0, 0, 0, 0.25);
+}
+ .menu-button:focus, .menu-button:active {
+	 box-shadow: 0.15rem 0.25rem 0.35rem rgba(0, 0, 0, 0.25);
+}
+ @media (min-width: 576px) {
+	 .menu-button {
+		 font-size: 1.75rem;
+		 width: 50px;
+	}
+}
+ .content-veil {
+	 position: fixed;
+	 top: 0;
+	 left: 0;
+	 height: 100vh;
+	 width: 100%;
+	 background-color: #333;
+	 opacity: 0;
+	 visibility: hidden;
+	 z-index: 85;
+}
+ 
+
+
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
 @font-face {
   font-family: Lato;
@@ -6,20 +109,24 @@
 }
 body, html {
   font-family: Lato;
+  
 }
 
-h1 {
-  font-size: 28px;
+h5 {
+  font-size: 40px;
   line-height: 40px;
-  margin-top: 20px;
+  margin-top: 15px;
+  margin-bottom: 5px;;
 }
-h1 a {
+ a {
   text-decoration: none;
   color: #48c15e;
 }
-h1 p {
+p {
   font-size: 22px;
 }
+
+
 
 #grid {
   -moz-transform: translate(1px, 0px);
@@ -50,6 +157,28 @@ h1 p {
   -webkit-animation: lineani 1.3s linear forwards;
   animation: lineani 1.3s linear forwards;
 }
+#graph-5 {
+  stroke: url(#gradient-2);
+  stroke-width: 1.5;
+  fill: transparent;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  -moz-animation: lineani 1.3s linear forwards;
+  -webkit-animation: lineani 1.3s linear forwards;
+  animation: lineani 1.3s linear forwards;
+}
+
+#graph-6 {
+  stroke: url(#gradient-1);
+  stroke-width: 1.5;
+  fill: transparent;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  -moz-animation: lineani 1.3s linear forwards;
+  -webkit-animation: lineani 1.3s linear forwards;
+  animation: lineani 1.3s linear forwards;
+}
+
 
 #poly-1 {
   fill: url(#gradient-3);
@@ -57,6 +186,14 @@ h1 p {
 
 #poly-2 {
   fill: url(#gradient-4);
+}
+
+#poly-5 {
+  fill: url(#gradient-4);
+}
+
+#poly-6 {
+  fill: url(#gradient-3);
 }
 
 @-moz-keyframes lineani {
@@ -106,7 +243,7 @@ h1 p {
 }
 
 body {
-  background-color: #24303a;
+  background-color:#121212;
   color: white;
   text-align: center;
 }
@@ -121,7 +258,8 @@ body {
   box-sizing: border-box;
   bottom: 50px;;
   right:1000px;
-  margin-left:300px
+  margin-left:300px;
+  
 }
 
 .chart {
@@ -129,7 +267,7 @@ body {
   text-align: left;
   position: relative;
   height: auto;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(3, 3, 3);
   display: inline-block;
   float: left;
   position: relative;
@@ -138,7 +276,15 @@ body {
   box-sizing: border-box;
   margin: 10px;
   padding: 15px 20px 65px 20px;
+  transition: all .2s ease-in;
+   box-shadow: 0px 0px 25px #000;
+   border-radius: 20px;
 }
+
+.chart:hover {
+    transform: scale(1.05);
+}
+
 .chart.circle {
   padding: 15px 20px 40px 20px;
 }
@@ -234,7 +380,7 @@ body {
 
 .total-gain {
   color: white;
-  font-size: 48px;
+  font-size: 20px;
 }
 
 .triangle {
@@ -279,43 +425,10 @@ body {
 .cf {
   *zoom: 1;
 }
-
-/*IRRELEVANT CSS*/
-.followlinks {
-  position: fixed;
-  right: 35px;
-  bottom: 15px;
-  display: table;
-}
-.followlinks a {
-  display: table-cell;
-  vertical-align: middle;
-  padding-left: 10px;
-  color: white;
-}
-.followlinks a svg path {
-  fill: white;
-}
-
-.heartIt {
-  margin-top: 50px;
-  margin-bottom: 80px;
-}
-.heartIt p {
-  font-size: 24px;
-  line-height: 40px;
-}
-.heartIt img {
-  width: 64px;
-  height: auto;
-  opacity: 0.7;
-  -webkit-filter: invert(100%);
-  filter: invert(100%);
-}
-
-.original {
-  color: #ef6670;
-  font-size: 14px;
+p1{
+	font-size:15px;
+	margin-top: 30px;
+	color:white;
 }
 
 
@@ -412,3 +525,9 @@ body {
 	 color: #d00355;
 }
  
+#h5{
+	margin-bottom:16px;
+}
+#h6{
+	color:white;
+}

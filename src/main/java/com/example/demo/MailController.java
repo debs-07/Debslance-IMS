@@ -1,15 +1,12 @@
 package com.example.demo;
 
 import java.io.IOException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
+
 
 
 @RestController
@@ -30,7 +27,8 @@ public class MailController {
 			return mailService.send(item.getModel());
 		}
 		else
-			return "/showItemPage";
+			return "<h1>ORDER SUCCESS<h1>"
+					+ "<a href=\"http://localhost:8080/user/displayProducts\">Go Back</a>";
 	
   	}
 	

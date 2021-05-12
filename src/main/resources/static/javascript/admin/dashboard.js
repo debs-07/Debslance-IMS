@@ -1,52 +1,137 @@
 $(window).on('load',function(){
     drawGrid('#chart-2');
-drawGrid('#chart-1');
-    drawCircle('#chart-3',1,77,'#circle-1');
-    drawCircle('#chart-4',2,53,'#circle-2');
+    drawGrid('#chart-1');
+    drawGrid('#chart-5');
+    drawGrid('#chart-6');
+    drawCircle('#chart-3',1,parseInt(bestRating),'#circle-1');
+    drawCircle('#chart-4',2,parseInt(wrostRating),'#circle-2');
     drawLineGraph('#chart-1', chart_1_y, '#graph-1-container', 1);
     drawLineGraph('#chart-2', chart_2_y, '#graph-2-container', 2);
-    
-$( "li" ).hover(
-  function() {
-      $(this).find("a").css("color","#FFF");
-      $(this).find("span").stop().animate({
-      width:"100%",
-      opacity:"1",
-    }, 600, function () {
-        // Animation complete.
-        // Show Navigation
-    })
-  }, function() {
-      $(this).find("a").css("color","#555");
-      $(this).find("span").stop().animate({
-      width:"0%",
-      opacity:"0",
-    }, 600, function () {
-        // Animation complete.
-        // Show Navigation
-    })
-  }
-);
+    drawLineGraph('#chart-5', chart_5_y, '#graph-5-container', 5);
+    drawLineGraph('#chart-6', chart_6_y, '#graph-6-container', 6);
+
+console.clear();
+
+const menuDrawer = document.getElementById("menuDrawer");
+const menuBtn = document.getElementById("menuBtn");
+const menuIcon = document.getElementById("menuIcon");
+const contentVeil = document.getElementById("contentVeil");
+const menuItems = document.querySelectorAll(".menu-item");
+
+const drawerTl = new TimelineLite({ paused: true });
+
+const toggleVeil = () => TweenLite.set( contentVeil, {
+  autoAlpha: drawerTl.reversed() ? 0 : 0.25
+});
+
+drawerTl
+  .call(toggleVeil)
+  .to( menuDrawer, 0.25, {
+    x: 0, ease: Power1.easeOut
+  })
+  .to( menuBtn, 0.25, {
+    x: 170, ease: Power1.easeOut
+  }, 0)
+  .reverse();
+
+const toggleDrawer = () => {
+  drawerTl.reversed( !drawerTl.reversed() );
+  menuIcon.classList.toggle("fa-times");
+}
+
+menuBtn.onclick = toggleDrawer;
+
+contentVeil.onclick = toggleDrawer;
+
+menuItems.forEach( e => {
+  e.onclick = toggleDrawer;
+})
+stockCpSpRating();
 });
 
 var chart_h = 40;
 var chart_w = 80;
 var stepX = 77 / 14;
 
-var chart_1_y=[0];
-var chart_2_y=[0];
 
 
-
+var chart_1_y=[];
+var chart_2_y=[];
+var chart_5_y=[];
+var chart_6_y=[];
+var netStock=0;
+var netCp=0;
+var netSp=0;
+var bestRating=0.0;
+var wrostRating=100.0;
+var bestModel;
+var wrostModel;
+var totalSold=0;
+var highestSold=0;
+var modelHighestSold;
 
 function add1(val)
 {
 	chart_1_y.push(val);
+	netStock=netStock+val;
 }
 function add2(val)
 {
 	chart_2_y.push(val);
+	netCp=netCp+val;
 }
+function add5(val)
+{
+	chart_5_y.push(val);
+	netSp=netSp+val;
+}
+function add6(val,model)
+{
+	chart_6_y.push(val);
+	totalSold=totalSold+val;
+	if(val>highestSold){
+	highestSold=val;
+	modelHighestSold=model;
+	}
+}
+
+
+function stockCpSpRating()
+{
+	document.getElementById("netStock").innerHTML = "NetStock=" + netStock;
+	document.getElementById("netCp").innerHTML = "NetStockCp=" + "₹"+netCp.toFixed(4)+"K";
+	document.getElementById("netSp").innerHTML = "NetStockSp=" + "₹"+netSp.toFixed(4)+"K";
+	document.getElementById("bestRated").innerHTML = "Model="+bestModel;
+	document.getElementById("wrostRated").innerHTML = "Model="+wrostModel;
+	document.getElementById("netSold").innerHTML = "NetSold=" + totalSold;
+}
+function check(val,model)
+{
+	if(val*20>bestRating){
+		 bestModel=model;
+		 bestRating=(val*20).toFixed(2);;
+	}
+	  
+	 if(val*20<wrostRating){
+		wrostModel=model;
+		wrostRating=(val*20).toFixed(2);;
+	}
+	 
+}
+
+function Rated(){
+	
+}
+
+
+
+
+
+
+
+
+
+
 
 function point(x, y) {
     x: 0;
@@ -182,13 +267,13 @@ function drawLineGraph(graph, points, container, id) {
             if (sum > 0) {
                 var timerID = setInterval(function () {
                     i++;
-                    totalGain.text(percentagePrefix + i);
+                    
                     if (i === sum) clearInterval(timerID);
                 }, intervalTime);
             } else if (sum < 0) {
                 var timerID = setInterval(function () {
                     i--;
-                    totalGain.text(percentagePrefix + i);
+                  
                     if (i === sum) clearInterval(timerID);
                 }, intervalTime);
             }
@@ -196,7 +281,7 @@ function drawLineGraph(graph, points, container, id) {
         count(graph, sum);
 
         percentage.text(percentagePrefix + percentageGain + "%");
-        totalGain.text("0%");
+        
         setTimeout(function () {
             percentage.addClass('visible');
             hVal.addClass('visible');
@@ -208,8 +293,12 @@ function drawLineGraph(graph, points, container, id) {
     function showValues() {
         var val1 = $(graph).find('.h-value');
         var val2 = $(graph).find('.percentage-value');
+        var val5 = $(graph).find('.percentage-value');
+        var val6 = $(graph).find('.h-value');
         val1.addClass('visible');
         val2.addClass('visible');
+        val5.addClass('visible');
+        val6.addClass('visible');
     }
 
     function drawPolygon(segments, id) {

@@ -12,6 +12,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
+<div class="flip">
+	<a href="https://dribbble.com/shots/2507318-start-rollover" target="_blank">
+		<div class="front">FLIP</div>
+		<div class="back">FLIP</div>
+  </a>
+</div>
+
   <section class="cart_wrapper">
         <div class="cart_lists">
           <div class="cart_title">
@@ -50,9 +57,12 @@
                   Back to Shop
                 </a>
               </div>
-              <div class="subtotal">
+              
+              
+              
+              <div class="subtotal" >
                 <label>Subtotal:₹ </label>
-                <strong th:text=${item.sp}>$2451.00</strong>
+                <strong id="final"></strong>
               </div>
             </div>
           </div>
@@ -60,6 +70,9 @@
         
     <script th:inline="javascript">
           var id= /*[[${item.id}]]*/"hello";
+            var sp= /*[[${item.sp}]]*/"hello";
+               var num= /*[[${number}]]*/"hello";
+               calculate(sp,num);
           </script>
       
         <div class="cart_details">

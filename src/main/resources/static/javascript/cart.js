@@ -1,5 +1,7 @@
 window.onload = function(){ 
     
+    
+
 
 function card_format(value) {
   var v = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
@@ -49,3 +51,15 @@ function checkDigit(event) {
   return true;
 }
 };
+
+    var total;
+    function calculate(sp,num){
+	total=sp*num;
+	print();
+    }
+    
+    function print(){
+	document.getElementById("final").innerHTML=total;
+    }
+    
+    

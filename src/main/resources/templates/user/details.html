@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/user/details.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,600" rel="stylesheet">
+</head>
+<body>
+<div class="center">
+  <div class="container">
+<!--   https://www.jerecho.com/codepen/nike-product-page/ -->
+  <div class="product-image">
+  
+    <img src="https://www.homeloans.com.au/-/media/Project/Resimac/Homeloans/Blog-images/1440x960_smart_appliances.jpg?h=960&iar=0&w=1440&hash=A9FC4161E7075B3933D165F5B7CCE205" alt="" class="product-pic">
+    <div class="dots">
+      <a href="#!" class="active"><i>1</i></a>
+    </div>
+  </div>
+  
+  <div class="product-details">
+    <header>
+      <h1 class="title" th:text="${item.model}">Nike Roshe Run</h1>
+      <span class="colorCat" th:text="${item.color}">mint green</span>
+      <div class="price">
+        <span class="before">$100000</span>
+        <span class="current" th:text="${item.sp}">$144.99</span>
+      </div>
+    </header>
+    <article>
+    <div class="controls">
+
+      <form th:action="@{/user/cart/buy/{id}(id=${item.id})}" method="GET" id="userform">
+      <div class="qty">
+        <h5>qty</h5>
+        <input type="number" name="units" id="units" value="0" min="0" >
+      </div>
+       <div class="qty">
+        <h5>Rating(From 5)</h5>
+        <input type="number" name="rating" id="rating" value="1.0" step="0.01" min="1.0" max="5.0">
+      </div>
+      <label for="review">Review</label>
+       <textarea rows="10" cols="100" name="review" id="review" form="userform" placeholder="Write a review"></textarea>
+    </div>
+    <div class="footer">
+      <button type="submit">
+        <img src="http://co0kie.github.io/codepen/nike-product-page/cart.png" alt="">
+        <span>Buy</span>
+      </button>
+    </div>
+    </form>
+  </div>   
+</div>
+ <figure class="review" th:each="review :${reviews}" th:if="${review.itemId} == ${item.id} and ${review.review !=null}">
+    <blockquote class="review__text" th:text="${review.review}">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga doloremque architecto dicta animi, totam, itaque officia ex.
+    </blockquote>
+    <figcaption class="review__person">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="User 1" class="review__photo">
+      <div class="review__info">
+        <p class="review__info--name" th:text="${review.user}">Nikki Smith</p>
+        <p class="review__info--date" th:text="${review.created_at}"> April 26, 2020</p>
+      </div>
+
+    </figcaption>
+  </figure>
+</div>
+</body>
+</html>

@@ -10,6 +10,7 @@
      <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">
     <script src="/javascript/user/displayProduct.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
   
 </head>
 <body>
@@ -29,13 +30,12 @@
         <section class="section-grid">
         <div class="grid-prod" >  
           <div th:each="item :${items}" class="prod-grid"><img src="https://www.homeloans.com.au/-/media/Project/Resimac/Homeloans/Blog-images/1440x960_smart_appliances.jpg?h=960&iar=0&w=1440&hash=A9FC4161E7075B3933D165F5B7CCE205" alt="kalita">
-           <form th:action="@{/user/cart/{id}(id=${item.id})}" method="GET">
-           <h3 th:text="${item.color}"> </h3>    
-                <p th:text="${item.model}"></p>
-                 <p th:text="${item.sp}"></p>
-                 <input type="number" name="units" id="units">
-          <button class="btn"> Add to cart <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
-          </form>
+			  <p>Price:₹</p><h3 th:text="${item.sp}"></h3>
+              
+                 <p>Model:</p><h3 th:text="${item.model}"></h3>
+                <p>Colour:₹</p><h3 th:text="${item.color}"> </h3> 
+                   <a type="button" class=" btn" th:href="@{/user/details/{id}(id=${item.id})}">Details</a>
+
          </div>
         </div>
          </section> 
@@ -45,14 +45,11 @@
         <section class="section-list">
           <table>
             <tr th:each="item :${items}">
-            <form th:action="@{/user/cart/{id}(id=${item.id})}" method="GET">
               <td th:if="${item.type} == 'fridge'"><img src="https://www.homeloans.com.au/-/media/Project/Resimac/Homeloans/Blog-images/1440x960_smart_appliances.jpg?h=960&iar=0&w=1440&hash=A9FC4161E7075B3933D165F5B7CCE205" alt="kalita"><td>
-              <td>  <h3 th:text="${item.color}"> </h3>    
-                <p th:text="${item.model}"></p>
-                 <p th:text="${item.sp}"></p>
-                 <input type="number" name="units" id="units">
-               <button class="btn-list"> Buy <i class="fa fa-shopping-cart" aria-hidden="true"></i></button></td>
-                </form>
+              <td> <p>Price:₹</p><h3 th:text="${item.sp}"></h3>     
+                <p>Model:</p><h3 th:text="${item.model}"></h3>
+                 <p>Colour:₹</p><h3 th:text="${item.color}"> </h3>
+                 <a type="button" class="btn " th:href="@{/user/details/{id}(id=${item.id})}">Details</a>
             </tr>
           </table>
          </section> 

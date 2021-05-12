@@ -23,7 +23,7 @@
                 <li><i class="fa fa-times" aria-hidden="true"></i> Live Support</li>
                 <li><i class="fa fa-times" aria-hidden="true"></i> 10% Discount(10 Ords/Month)</li>
             </ul>
-              <a  sec:Authorize="isAuthenticated()" class="btn" th:href="@{/user/plansCheckOut/Basic}">Choose</a>
+              <a  sec:Authorize="isAuthenticated()"  class="btn" th:href="@{/user/plansCheckOut/Basic}">Choose</a>
               <a  sec:Authorize="isAnonymous()"     class="btn" th:href="@{/login}">Choose</a>
         </section>
         <section class="card">

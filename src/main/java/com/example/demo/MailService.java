@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,12 +23,19 @@ import com.sendgrid.SendGrid;
 @Service
 public class MailService {
 	private static final Logger logger = LoggerFactory.getLogger(MailService.class);
-
+	
+	@Value("${templateId}")
+	 private String templateId;
+	@Value("${spring.sendgrid.api-key}")
+	 private String apiKey;
+	
 	public String send(String model) throws IOException {
 		/*
 		 * The sender email should be the same as we used to Create a Single Sender
 		 * Verification
 		 */
+
+		
 		Email from = new Email("");
 		Email to = new Email("");
 		Mail mail = new Mail();
@@ -39,9 +47,9 @@ public class MailService {
 		//feel free to create a variable firstName  passed with the send method
 		personalization.addDynamicTemplateData("model", model);
 		mail.addPersonalization(personalization);
-		mail.setTemplateId("");
+		mail.setTemplateId(templateId);
 		// feel free to save this varible on the env
-		SendGrid sg = new SendGrid("");
+		SendGrid sg = new SendGrid(apiKey);
 		Request request = new Request();
 
 		try {

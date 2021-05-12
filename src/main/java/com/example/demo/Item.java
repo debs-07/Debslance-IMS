@@ -20,11 +20,10 @@ public class Item {
 	private Long unit;
 	private Long sp;
 	private Long cp;
-	private Double rating;
-	private String reviews="";
-	private String profit;
+	private Double rating=0.0;
+	private int profit;
 	private String color;
-	private String sold="";
+	private int sold=0;
 	
 	
 	public Long getId() {
@@ -63,16 +62,10 @@ public class Item {
 	public void setRating(Double rating) {
 		this.rating = rating;
 	}
-	public String getReviews() {
-		return reviews;
-	}
-	public void setReviews(String reviews) {
-		this.reviews = reviews;
-	}
-	public String getProfit() {
+	public int getProfit() {
 		return profit;
 	}
-	public void setProfit(String profit) {
+	public void setProfit(int profit) {
 		this.profit = profit;
 	}
 	public String getColor() {
@@ -87,23 +80,11 @@ public class Item {
 	public void setUnit(Long unit) {
 		this.unit = unit;
 	}
-	public String getSold() {
+	public int getSold() {
 		return sold;
 	}
-	public void setSold(String sold) {
+	public void setSold(int sold) {
 		this.sold = sold;
 	}
-
-	   public List<String> getReviewList(){
-	        if(this.reviews.length() > 0){
-	            return Arrays.asList(this.reviews.split(","));
-	        }
-	        return new ArrayList<>();
-	    }
-	   public List<String> getSoldList(){
-	        if(this.sold.length() > 0){
-	            return Arrays.asList(this.sold.split(","));
-	        }
-	        return new ArrayList<>();
-	    }
+	    
 }

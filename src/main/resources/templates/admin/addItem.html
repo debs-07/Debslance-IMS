@@ -11,18 +11,24 @@
     <form th:action="@{/admin/addItem-done}" th:object="${item}" method="post">
     <div class="container">
         <h1 class="form__title">New Product</h1>
-        <p class="form__subtitle">One More Model For Your Inventory</p>
         <div action="" class="form">
           <div class="form__input--fullwidth--icon">
             <i class="form__input__icon fa fa-flask" aria-hidden="true"></i>
              <input class="form__input--fullwidth" type="text" placeholder="Item Name" th:field="*{model}">
           </div>
          
-          <input class="form__input" type="text" placeholder="Units" th:field="*{unit}">
+          <input class="form__input" type="number" placeholder="Units" th:field="*{unit}">
           <input class="form__input" type="text" placeholder="Type" th:field="*{type}">
-          <input class="form__input--fullwidth" type="text" placeholder="Cost Price" th:field="*{cp}">
-          <input class="form__input--fullwidth" type="text" placeholder="Selling price" th:field="*{sp}">
-           <input class="form__input--fullwidth" type="text" placeholder="Colour" th:field="*{color}">
+          <input class="form__input--fullwidth" type="number" placeholder="Cost Price" th:field="*{cp}">
+          <input class="form__input--fullwidth" type="number" placeholder="Selling price" th:field="*{sp}">
+          <label for="id">Total Number of the product sold</label>
+          <input class="form__input" type="number" placeholder="Sold" id="sold" th:field="*{sold}">
+          <label for="id">Profit from already sold products</label>
+          <input class="form__input" type="number" placeholder="Profit" id="profit" th:field="*{profit}">
+           <label for="rating">Current Rating(out of 5.0)</label>
+           <input class="form__input" type="text" placeholder="Rating"  id="rating" th:field="*{rating}">
+           <label for="color">Color of the product</label>
+           <input class="form__input" type="text" placeholder="Colour" id="color" th:field="*{color}">
           <div class="form__input--fullwidth--icon">
             <i class="form__input__icon fa fa-check-circle" aria-hidden="true"></i>
           </div>

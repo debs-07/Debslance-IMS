@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.security.Principal;
+
 import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -25,16 +27,10 @@ public class UserController {
 	private UserRepository userRepo;
 	@Autowired
 	private ItemRepository itemRepo;
-//	@Autowired
-//	private CustomerRepository customerRepo;
+	@Autowired
+	private ReviewRepository reviewRepo;
 	
-	
-	@GetMapping("/gg")
-	public String gg() {
-	return "gg";
-}
-	
-	
+
 
 	@GetMapping("/login")
 	public String login() {
@@ -92,19 +88,53 @@ public class UserController {
 		  redirectAttributes.addFlashAttribute("id", x);
 		if(x<10)
   			return "redirect:/api/send";
-  		return "/";
+  		return "home";
   	}
   	
-  	@GetMapping("/cart/{id}")
-  	public ModelAndView cart(@PathVariable(name = "id") Long id,@RequestParam Long units) {
+  	@GetMapping("/cart/buy/{id}")
+  	public ModelAndView cart(@PathVariable(name = "id") Long id,Principal principal,@RequestParam Long units,@RequestParam Double rating,@RequestParam String review) {
   		ModelAndView mav=new ModelAndView("user/cart");
   		mav.addObject("item",itemRepo.findById(id));
   		mav.addObject("number",units);
   		Item item=itemRepo.findById(id);
   		item.setUnit(item.getUnit()-units);
-  		
+        Double newRating=(item.getRating()+rating)/2;
+        item.setRating(newRating);
+        if(review!=null) {
+        String name=principal.getName();
+        Review reviewNew=new Review();
+        reviewNew.setReview(review);
+        reviewNew.setItemId(id);
+        reviewNew.setUser(name);
+        reviewRepo.save(reviewNew);
+        }
   		itemRepo.save(item);
   		return mav;	
   	}
   	
-}
+  	
+  	
+  	
+  	@GetMapping("/details/{id}")
+  	public ModelAndView details(@PathVariable(name = "id") Long id) {
+  		ModelAndView mav=new ModelAndView("user/details");
+  		mav.addObject("item",itemRepo.findById(id));
+  	    mav.addObject("reviews",reviewRepo.findAll());
+  	    System.out.println(reviewRepo.findAll());
+  		return mav;
+}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
