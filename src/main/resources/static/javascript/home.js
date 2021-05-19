@@ -1,4 +1,5 @@
 window.onload = function(){ 
+
 function init() {
     // slider
     const slides = document.querySelectorAll(".slide");

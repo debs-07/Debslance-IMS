@@ -10,14 +10,24 @@
     <link rel="stylesheet" href="/css/user/completeOrderButton.css" type="text/css">
     <script type="text/javascript" src="/javascript/completeOrderButton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<nav>
 <div class="flip">
-	<a href="https://dribbble.com/shots/2507318-start-rollover" target="_blank">
-		<div class="front">FLIP</div>
-		<div class="back">FLIP</div>
+	<a th:href="@{\user\showPageShop}">
+		<div class="front"><i class="fa fa-arrow-circle-left"></i>Back</div>
+		<div class="back"><i class="fa fa-arrow-circle-left"></i>Back</div>
   </a>
 </div>
+<div class="flip two">
+	<a th:href="@{\logout}">
+		<div class="front"><i class="fa fa-sign-out"></i>Logout</div>
+		<div class="back"><i class="fa fa-sign-out"></i>Logout</div>
+  </a>
+</div>
+
+</nav>
 
   <section class="cart_wrapper">
         <div class="cart_lists">

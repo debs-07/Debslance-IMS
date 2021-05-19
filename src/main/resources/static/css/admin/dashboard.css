@@ -2,9 +2,12 @@
  .menu-header {
 	 height: 70px;
 	 border-bottom: 1px solid #dee2e6;
+	 background:#111;
 }
  .menu-header .h2 {
 	 font-size: 1.5rem;
+	 color:white;
+	 text-align:center;
 }
  @media (min-width: 576px) {
 	 .menu-header {
@@ -251,14 +254,14 @@ body {
 .charts-container {
   padding: 20px;
   width: 100%;
-  max-width: 1024px;
+  max-width: 1300px;
   display: inline-block;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   bottom: 50px;;
   right:1000px;
-  margin-left:300px;
+  margin-left:200px;
   
 }
 
@@ -295,7 +298,7 @@ body {
 }
 @media screen and (min-width: 700px) {
   .chart {
-    width: calc(50% - 20px);
+    width: 45%;
   }
 }
 

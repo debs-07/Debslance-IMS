@@ -1,0 +1,46 @@
+body {
+
+  font-size: 16px;
+}
+html{
+	background-color: black;
+}
+
+.chart-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color:rgb(0,0,0);
+  position: absolute;
+}
+
+path {
+  stroke: rgb(00,00,00);
+  /* stroke-width: 5px; */
+  cursor: pointer;
+  transition: fill 250ms;
+}
+path:hover {
+  /* stroke-width: 10px; */
+  fill: #fff;
+}
+
+text {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-bottom: 10px;
+}
+
+polyline {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2px;
+  stroke-dasharray: 5px;
+}
+
+
+#h1{
+	color:white;
+	font-size: 20px;
+   text-align: center;
+   text-decoration: underline;
+}

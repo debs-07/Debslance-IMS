@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="/css/admin/pichartAc.css" type="text/css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="/javascript/admin/pichartAc.js"></script>
+</head>
+<body>
+
+<div class="chart-wrapper">
+<div>      <h1 id="h1">If Colors aren't visible please refresh the page</h1>
+</div>
+</div>
+
+
+
+  <p th:each="item :${items}" th:if="${item.type=='ac'}">
+      <script th:inline="javascript">
+         var chart_1= /*[[${item.sold}]]*/"hello";
+         var chart_2= /*[[${item.model}]]*/"hello";
+         add(chart_1,chart_2);
+
+      </script>
+      </p>
+
+
+</body>
+</html>

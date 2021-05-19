@@ -11,13 +11,33 @@
     <script src="/javascript/user/displayProduct.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
       <link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
 </head>
 <body>
+
+<nav class="navbar">
+<div class="flip">
+	<a th:href="@{\user\home}">
+		<div class="front"><i class="fa fa-home"></i>Home</div>
+		<div class="back"><i class="fa fa-home"></i>Home</div>
+  </a>
+</div>
+<h1 class="navHead">Products View</h1>
+<div class="flip two">
+	<a th:href="@{\logout}">
+		<div class="front"><i class="fa fa-sign-out"></i>Logout</div>
+		<div class="back"><i class="fa fa-sign-out"></i>Logout</div>
+  </a>
+</div>
+
+</nav>
+
+
     <title>Product List and Grid View</title>
     <meta name"viewport" content="width=device-width, user-scalable=no, initial=scale=1.0, maximun-scale=1.0, minimun-scale=1.0" >
     
-    <h1>Product List and Grid View</h1>
+    
     
     <!--Buttons of grid and list-->
      <div class="buttons">
@@ -34,6 +54,8 @@
               
                  <p>Model:</p><h3 th:text="${item.model}"></h3>
                 <p>Colour:₹</p><h3 th:text="${item.color}"> </h3> 
+                <a type="button" class=" btn1" th:href="@{/user/query/{id}(id=${item.id})}">Query</a>
+                <a type="button" class=" btn2" th:href="@{/user/order/{id}(id=${item.id})}">Order</a>
                    <a type="button" class=" btn" th:href="@{/user/details/{id}(id=${item.id})}">Details</a>
 
          </div>
@@ -49,6 +71,8 @@
               <td> <p>Price:₹</p><h3 th:text="${item.sp}"></h3>     
                 <p>Model:</p><h3 th:text="${item.model}"></h3>
                  <p>Colour:₹</p><h3 th:text="${item.color}"> </h3>
+                 <a type="button" class=" btn1" id="button" th:href="@{/user/query/{id}(id=${item.id})}">Query</a>
+                 <a type="button" class=" btn2" id="button" th:href="@{/user/order/{id}(id=${item.id})}">Order</a>
                  <a type="button" class="btn " th:href="@{/user/details/{id}(id=${item.id})}">Details</a>
             </tr>
           </table>
@@ -57,3 +81,6 @@
     </div>  
 </body>
 </html>
+
+
+	

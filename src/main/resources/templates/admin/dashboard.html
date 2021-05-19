@@ -17,7 +17,8 @@
     <link href="https://fonts.googleapis.com/css?family=Baloo+2:400,500,600,700,800&display=swap&subset=vietnamese" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
 </head>
 <body>
    
@@ -26,7 +27,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <div class="h2 text-right mt-2">Inventory Status</div>
+          <div class="h2 text-right mt-2">Inventory Status <i class="fa fa-fighter-jet" style="font-size:24px"></i></div>
         </div>
       </div>
     </div>
@@ -36,14 +37,16 @@
       <h6 class="pl-3" id="h6">Menu</h6>
     </div>
     <div class="menu-container py-3">
-      <a class="menu-item" th:href="@{/admin/inventory}"><i class="fas fa-th-large mr-3"></i>Inventory</a>
-      <a class="menu-item" th:href="@{/admin/stocksGraph}"><i class="fas fa-user mr-3"></i>StocksGraph</a>
+      <a class="menu-item" th:href="@{/admin/inventoryTable}"><i class="fa fa-server" style="font-size:24px"></i> Inventory</a>
+      <a class="menu-item" th:href="@{/admin/stocksGraph}"><i class="fa fa-bar-chart" style="font-size:24px"></i> StocksGraph</a>
       <div class="divider"></div>
-      <a class="menu-item" th:href="@{/admin/chooseProducts}"><i class="fas fa-box mr-3"></i>Indivisual Stocks</a>
-      <a class="menu-item" th:href="@{/admin/barGraphDetails}"><i class="fas fa-store-alt mr-3"></i>Detailed BarGraph</a>
-      <a class="menu-item" th:href="@{/admin/inventoryTable}"><i class="fas fa-tags mr-3"></i>Stock Table</a>
+      <a class="menu-item" th:href="@{/admin/chooseProducts}"><i class="fa fa-line-chart" style="font-size:24px"></i> Indivisual Stocks</a>
+      <a class="menu-item" th:href="@{/admin/pichartAc}"><i class="fa fa-pie-chart" style="font-size:24px"></i> Pi ChartAc</a>
+      <a class="menu-item" th:href="@{/admin/pichartFridge}"><i class="fa fa-pie-chart" style="font-size:24px"></i> Pi ChartFridge</a>
+      <a class="menu-item" th:href="@{/admin/pichartCoolers}"><i class="fa fa-pie-chart" style="font-size:24px"></i> Pi ChartCoolers</a>
+      <a class="menu-item" th:href="@{/admin/ordersGraph}"><i class='fas fa-shopping-cart' style='font-size:24px'></i></i> Orders</a>
       <div class="divider"></div>
-      <a class="menu-item" th:href="@{/logout}"><i class="fas fa-tools mr-3"></i>Sign Out</a>
+      <a class="menu-item" th:href="@{/logout}"><i class="fa fa-sign-out" style="font-size:24px"></i> Sign Out</a>
       
     </div>
   </div>
@@ -55,7 +58,7 @@
 </nav>
 
 <div class="charts-container cf">
-<h5 id="h5">  Stocks Graphs</h5>
+<h5 id="h5">  Stocks Graphs(Data-Driven And Dynamic)</h5>
   <div class="chart" id="graph-1-container">
     <h2 class="title">Current Stock</h2>
     <div class="chart-svg">

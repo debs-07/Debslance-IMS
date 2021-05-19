@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css" type="text/css">
+  <link rel="stylesheet" href="/css/user/order.css" type="text/css">
+</head>
+<body>
+  
+  <body class="hm-gradient">
+    
+    <main>
+        
+
+                
+ 
+  
+            <div class="row">
+                <!-- Grid column -->
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Form contact -->
+                            <form th:action="@{/user/order-done/{id}(id=${item.id})}" method="POST" th:object=${order} id="userform">
+                          
+                                <h2 class="text-center py-4 font-bold font-up danger-text">Order</h2>
+                                  <h3 th:text="${item.model}"></h3>
+                                <div class="md-form">
+                                    <i class="fa fa-user prefix grey-text"></i>
+                                    <input type="text" class="form-control" name="units" id="units" required="true" th:field="*{units}"  placeholder="units" >
+                                    
+                                </div>
+                                <div class="md-form">
+                                    <i class="fa fa-pencil prefix grey-text"></i>
+                                    <textarea type="text"  class="md-textarea" style="height: 100px" name="message" id="message" placeholder="Your message"></textarea>
+                                    
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-outline-danger btn-lg">Order</button>
+                                </div>
+                            </form>
+                            <!-- Form contact -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                
+ 
+      
+    </main>
+  
+</body>
+  
+</body>
+</html>

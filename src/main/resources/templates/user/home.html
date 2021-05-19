@@ -9,6 +9,9 @@
     <script src="/javascript/user/home.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -21,7 +24,7 @@
         <div class="mastercard__copy">
           
           <span class="js-letters" sec:authentication="principal.email">Username</span>
-          <span id="two" class="js-letters" sec:authentication="principal.subscription"></span>
+          <span id="two" class="js-letters" sec:authentication="principal.subscription"><i class="fa fa-fighter-jet" style="color:white" ></i></span>
         </div>
       </div>
     </a>
@@ -29,12 +32,13 @@
       
   <div class="nav" > 
   <ul>
-    <li><a  sec:Authorize="isAuthenticated()"   th:href="@{/user/cartView}">Cart</a></li>
-    <li><a  th:href="@{/user/plans}">Plans</a></li>
-    <li><a  sec:Authorize="isAuthenticated()" th:href="@{/user/showPageShop}">Shop</a></li>
-    <li><a  sec:Authorize="isAuthenticated()" th:href="@{/logout}">Sign Out</a></li>
-    <li><a  sec:Authorize="isAnonymous()"     th:href="@{/userRegister}">Register</a></li>
-    <li><a  sec:Authorize="isAnonymous()"     th:href="@{/login}">Sign In</a></li>
+    <li><a  sec:Authorize="isAuthenticated()" th:href="@{/user/queries}">Query<i class="fa fa-question-circle"></i></i></a></li>
+    <li><a  th:href="@{/user/plans}">Plans <i class="fa fa-handshake-o"></i></a></li>
+    <li><a  sec:Authorize="isAuthenticated()" th:href="@{/user/showPageShop}">Shop <i class="fa fa-envelope-open-o"></i></a></li>
+    <li><a  sec:Authorize="isAuthenticated()" th:href="@{/logout}">Sign Out <i class="fa fa-sign-out"></i></a></li>
+    <li><a  sec:Authorize="isAnonymous()"     th:href="@{/userRegister}">Register <i class="fa fa-send-o"></i></a></li>
+    <li><a  sec:Authorize="isAnonymous()"     th:href="@{/login}">Sign In <i class="fa fa-sign-in"></i></a></li>
+    <li><a  sec:Authorize="isAuthenticated()" th:href="@{/user/ordersList}">Orders <i class='far fa-bookmark'></i></a></li>
     </ul>
   </div>
 
@@ -45,15 +49,19 @@
     <div class="hero__image"></div>
   </div>  
 
+
+
   <div class="hero__strap">
     <h2 class="hero__title">
       <span class="js-letters">Shop the year's</span>
       <span class="js-letters">most exciting</span> 
       <span class="js-letters">Sales</span>
+      
     </h2>
     <h3 class="hero__subtitle">Black Friday</h3>
-    <a class="button" href="#">Coming Soon</a>
+    <a class="button" href="#">Coming Soon</a><span class="js-letters" id="demo" style="font-size:30px"></span>
   </div>
+ 
 
 </div>
 

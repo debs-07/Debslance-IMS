@@ -1,15 +1,11 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,9 +17,11 @@ public class AdminController {
 	private UserRepository userRepo;
 	@Autowired
 	private ItemRepository itemRepo;
-//	@Value("${tomtom.apikey}")
-//	 private String tomTomApiKey;
-//	
+	@Autowired
+	private OrderRepository orderRepo;
+	@Autowired
+	private QueryRepository queryRepo;
+	
 	
 	@GetMapping("/login")
 	public String login() {
@@ -44,18 +42,7 @@ public class AdminController {
   	public String inventory() {
   		return "admin/inventory";
   	}
-  
-  	@GetMapping("/add")
-  	public String addItem(Model model) {
-  		model.addAttribute("item",new Item());
-  		return "admin/addItem";
-  	}
-  	@PostMapping("/addItem-done")
-  	public String Postregister(Item item) {
-  		itemRepo.save(item);
-  		return "admin/inventory";
-  	}
-  	
+ 
   	@GetMapping("/inventoryTable")
   	public ModelAndView viewcontents(Item items) {
   		ModelAndView mav=new ModelAndView("admin/inventoryTable");
@@ -109,26 +96,79 @@ public class AdminController {
   		return mav;
   	}
   	
-  	@GetMapping("/update/{id}")
-  	public ModelAndView update(@PathVariable(name = "id") Long id) {
-  		ModelAndView mav=new ModelAndView("admin/updateItemForm");
-  		mav.addObject("item",itemRepo.findById(id));
-  		return mav;	
+  	@GetMapping("/pichartAc")
+  	public ModelAndView pichartAc(Item items) {
+  		ModelAndView mav=new ModelAndView("/admin/pichartAc");
+  		mav.addObject("items",itemRepo.findAll());
+  		return mav;
   	}
-  	@PostMapping("/updateItem-done/{id}")
-  	public String updateItem(@PathVariable(name = "id") Long id,Item item) {
-  		Item upItem = itemRepo.findById(id);
-  		upItem.setModel(item.getModel());
-  		upItem.setUnit(item.getUnit());
-  		upItem.setType(item.getType());
-  		upItem.setCp(item.getCp());
-  		upItem.setSp(item.getSp());
-  		itemRepo.save(upItem);
-  		return "admin/inventory";
+  	
+	
+  	@GetMapping("/pichartFridge")
+  	public ModelAndView pichartFridge(Item items) {
+  		ModelAndView mav=new ModelAndView("/admin/pichartFridge");
+  		mav.addObject("items",itemRepo.findAll());
+  		return mav;
   	}
-
+  	
+	
+  	@GetMapping("/pichartCoolers")
+  	public ModelAndView pichartCoolers(Item items) {
+  		ModelAndView mav=new ModelAndView("/admin/pichartCoolers");
+  		mav.addObject("items",itemRepo.findAll());
+  		return mav;
+  	}
+  	
+  	@GetMapping("/ordersGraph")
+  	public ModelAndView ordersGraph(Item items,OrderDetails order) {
+  		ModelAndView mav=new ModelAndView("/admin/ordersGraph");
+  		mav.addObject("items",itemRepo.findAll());
+  		mav.addObject("orders",orderRepo.findAll());
+  		return mav;
+  	}
+  		 
+ 	@GetMapping("/add")
+ 	public String addItem(Model model) {
+ 		model.addAttribute("item",new Item());
+ 		return "admin/addItem";
+ 	}
+ 	@PostMapping("/addItem-done")
+ 	public String Postregister(Item item) {
+ 		itemRepo.save(item);
+ 		return "admin/home";
+ 	}
+ 	
+ 	@GetMapping("/update/{id}")
+ 	public ModelAndView update(@PathVariable(name = "id") Long id) {
+ 		ModelAndView mav=new ModelAndView("admin/updateItemForm");
+ 		mav.addObject("item",itemRepo.findById(id));
+ 		return mav;	
+ 	}
+ 	@PostMapping("/updateItem-done/{id}")
+ 	public String updateItem(@PathVariable(name = "id") Long id,Item item) {
+ 		Item upItem = itemRepo.findById(id);
+ 		upItem.setModel(item.getModel());
+ 		upItem.setUnit(item.getUnit());
+ 		upItem.setType(item.getType());
+ 		upItem.setCp(item.getCp());
+ 		upItem.setSp(item.getSp());
+ 		upItem.setColor(item.getColor());
+ 		itemRepo.save(upItem);
+ 		return "admin/home";
+ 	}
+ 	
       @GetMapping("/queries")
-      public String update() {
-      	return "queries";
+    	public ModelAndView queries(OrderDetails order) {
+    		ModelAndView mav=new ModelAndView("/admin/queries");
+    		mav.addObject("queries",queryRepo.findAll());
+    		return mav;
       }
+      
+      @GetMapping("/resolved/{id}")
+  	public String resolved(@PathVariable(name = "id") Long id,OrderDetails order) {
+  		Query query=queryRepo.findById(id);
+  		query.setStatusAdmin("resolved");
+  		queryRepo.save(query);
+  		return "/admin/home";
+    }
 }

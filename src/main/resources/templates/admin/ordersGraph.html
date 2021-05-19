@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link rel="stylesheet" href="/css/admin/ordersGraph.css" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/javascript/admin/ordersGraph.js"></script>
+
+</head>
+<body>
+
+<h1>Dynamic Graph For Upcoming Orders</h1> 
+
+<p>&nbsp;</p> 
+
+<div class="chartBarsWrap">
+    <div class="chartBars chartBars1">
+        <ul class="numbers">
+            <li><span>100</span></li>
+            <li><span>80</span></li>
+            <li><span>60</span></li>
+            <li><span>40</span></li>
+            <li><span>20</span></li>
+            <li><span>0</span></li>
+        </ul>
+        <ul class="bars">
+            <li th:each="order:${orders}" th:if="${order.statusUser} == null">
+                <span class="tooltip"> 
+                <span class="tooltipContent" th:text="${order.itemName}">Very important info that you should read!</span>
+                <div data-percentage="52" class="bar greenBar trigger" id="bar"></div>
+                
+                                
+                
+   
+       <script th:inline="javascript">
+         var chart_1= /*[[${order.units}]]*/"hello";
+         addUnits(chart_1);
+         
+         function add(val)
+         {
+	     addUnits(val);
+         }
+      </script>
+
+      
+                
+                </span>
+                <b th:text="${order.userEmail}">Alpha</b>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</div>
+
+</body>
+
+</html>

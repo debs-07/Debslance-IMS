@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
-
+.demo{
+	height:40px;
+	width:100px;
+	background-color: green;
+}
 :root {
   --white: rgba(255, 255, 255, 0.9);
 }
@@ -79,6 +83,7 @@ nav {
    border-top:2px solid black;
     border-right:2px solid black;
     border-bottom:2px solid black;
+    
 }
 
 .model-left {
@@ -258,7 +263,7 @@ nav {
 .btn {
 	 background-color: #fff;
 	 border: 0;
-	 width:35%;
+	 width:40%;
 	 border-radius: 5px;
 	 color: #000;
 	 font-family: inherit;
@@ -270,7 +275,7 @@ nav {
 	 margin-right: auto;
 	 padding: 0.4em 0.8em;
 	 text-decoration: none;
-	 letter-spacing: 2px;
+	 letter-spacing: 1.5px;
 }
  .btn:hover {
 	 background: #74c69d;

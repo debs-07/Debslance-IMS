@@ -25,9 +25,9 @@
             </div>
             
 <div class="card__column" th:each="item :${items}" th:with="height=${item.unit}">
-    <div class="bar" id="col"  th:style="|height: ${item.unit}px;background: #cbf6db;|" th:if="${item.type} == 'fridge'"> </div>  
-    <div class="bar" id="col"  th:style="|height: ${item.unit}px;background: #9bc472;|" th:if="${item.type} == 'ac'"> </div>  
-    <div class="bar" id="col"  th:style="|height: ${item.unit}px;background: #f5beb4;|" th:if="${item.type} == 'coolers'"> </div>  
+    <div class="bar" id="col"  th:style="|height: ${item.unit*3}px;background: #cbf6db;|" th:if="${item.type} == 'fridge'"> </div>  
+    <div class="bar" id="col"  th:style="|height: ${item.unit*3}px;background: #9bc472;|" th:if="${item.type} == 'ac'"> </div>  
+    <div class="bar" id="col"  th:style="|height: ${item.unit*3}px;background: #f5beb4;|" th:if="${item.type} == 'coolers'"> </div>  
 </div>
 
    

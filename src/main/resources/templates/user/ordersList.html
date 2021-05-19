@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+     <link rel="stylesheet" href="/css/user/ordersList.css" type="text/css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+ <h1 sec:authentication="principal.email" style="text-align: center;"></h1>
+  
+  <main>
+  <ol class="gradient-list" id="gradient-list" th:each="order :${orders}" th:if="${email==order.userEmail AND order.statusUser ==cancelled}">
+    <li th:text="${order.itemName}" >Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+    <div class="details">
+      <p>Units-</p><h2 th:text="${order.units}"></h2>
+     <script th:inline="javascript">
+		var units= /*[[${order.units}]]*/"hello";
+		var number;
+		add(units);
+        function add(units){
+	    number=units;
+}
+function use(units)
+{
+	document.getElementById("gradient-list").style.zIndex=units;
+}
+    </script>
+<div class="flip">
+	<a th:href="@{/user/cancel/{id}(id=${order.Id})}">
+		<div class="front"><i class="fa fa-home"></i>Cancel Order</div>
+		<div class="back"><i class="fa fa-home"></i>Cancel Order</div>
+  </a>
+</div>
+
+    </div>
+</ol>
+</main>
+  
+</body>
+</html>

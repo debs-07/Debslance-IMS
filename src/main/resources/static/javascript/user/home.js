@@ -1,4 +1,28 @@
 window.onload = function(){ 
+
+    var backgroundImg=["https://images.pexels.com/photos/3934623/pexels-photo-3934623.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+                        "https://wallpaperboat.com/wp-content/uploads/2020/11/10/60094/black-friday-14.jpg)",
+                        "https://i.pinimg.com/originals/fa/38/31/fa3831976bbbcdbefac1a336b91246c1.jpg",
+                        "https://interaktywnie.com/public/upload/img/272x200/05/74/57469_oferta-koszyczek.jpg"
+                        ]
+        var i=0;
+        if(i===0)
+        setInterval(changeImage, 5000);
+        else
+        setInterval(changeImage, 7000);
+        
+       function changeImage() {   
+        i++;
+        if(i==4)
+        i=0;
+
+        document.body.style.backgroundImage = "url('"+backgroundImg[i]+"')";
+        document.body.style.backgroundSize="cover";
+
+      }	
+
+
+
 var Intro = function() {
   this.$title = $('.hero__title');
   this.$subtitle = $('.hero__subtitle');
@@ -125,5 +149,36 @@ Intro.prototype = {
 }
 
 var intro = new Intro();
+setTimeout(function(){ 
+		// Set the date we're counting down to
+var countDownDate = new Date("Nov 26, 2021 15:37:25").getTime();
+
+// Update the count down every 1 second
+var countdownfunction = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+  
+  // Find the distance between now an the count down date
+  var distance = countDownDate - now;
+  
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML ="----"+days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+  
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(countdownfunction);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+ }, 4000);
+
 
 }

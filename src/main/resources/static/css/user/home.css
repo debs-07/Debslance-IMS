@@ -14,9 +14,9 @@
 	 margin: 0;
 	 height: 100vh;
 	 min-height: 500px;
-	 background-color: #1d1d1b;
+	 background-color: #000;
 	 color: #f5f2ed;
-	 background:url(https://wallpaperboat.com/wp-content/uploads/2020/11/10/60094/black-friday-14.jpg);
+	
      background-size: cover;
 }
  a {
@@ -79,7 +79,7 @@
 	 font-size: 1em;
 }
  .nav__item {
-	 margin-left: 20px;
+	 margin-left: 10px;
 }
  .hero {
 	 position: relative;
@@ -140,7 +140,7 @@ ul {
   padding: 0; 
   list-style: none; 
   display: table;
-  width: 600px;
+  width: 800px;
   text-align: center;
 }
 li { 

@@ -5,23 +5,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-   <link rel="stylesheet" href="/css/admin/queries.css" type="text/css">
+   <link rel="stylesheet" href="/css/user/queries.css" type="text/css">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
     
 <div class="row">
-    <div class="col-md-12 col-lg-6" th:each="query :${queries}" th:if="${query.statusAdmin} == null">
+    <div class="col-md-12 col-lg-6" th:each="query :${queries}" th:if="${email==query.userEmail}">
       <div class="member-card">
         <div class="member-pic"><img class="member-pic rounded-circle" src="https://icons-for-free.com/iconfiles/png/512/profile+user+icon-1320166082804563970.png"/></div>
         <div class="member-card-details">
           <a href="#"><div class="member-name" th:text="${query.message}">Ipek Raskolnikov</div></a>
-          <div class="member-position" th:text="${query.userEmail}">Russia</div>
-          <label for="ID">Id of Model:-</label>
+          <label for="ID">Admin Response:-</label>
+          <div class="member-position" th:text="${query.statusAdmin}">Russia</div>
+          <label for="ID">Item Id:-</label>
           <div class="member-position" id="ID" th:text="${query.itemId}">Russia</div>
         </div>
-        <div class="btn-fired"><a type="button"  th:href="@{/admin/resolved/{id}(id=${query.id})}">Click If Resolved</a></div>
+        <div class="btn-fired"><a type="button" th:if="${query.statusUser ==null}" th:href="@{/user/resolved/{id}(id=${query.id})}">Click If Resolved</a></div>
+        <div class="btn-fired"><a type="button" th:if="${query.statusUser!=null}">Resolved</a></div>
       </div>
     </div>
     </div>

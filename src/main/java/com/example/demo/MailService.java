@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.sendgrid.Content;
 import com.sendgrid.Email;
 import com.sendgrid.Mail;
 import com.sendgrid.Method;

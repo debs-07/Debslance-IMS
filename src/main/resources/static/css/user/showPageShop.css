@@ -87,3 +87,7 @@ main {
     display: none;
   }
 }
+
+.btn:hover{
+	color:white;
+}

@@ -1,12 +1,8 @@
 package com.example.demo;
 
 import java.security.Principal;
-
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,6 +25,10 @@ public class UserController {
 	private ItemRepository itemRepo;
 	@Autowired
 	private ReviewRepository reviewRepo;
+	@Autowired
+	private QueryRepository queryRepo;
+	@Autowired
+	private OrderRepository orderRepo;
 	
 
 
@@ -100,7 +100,8 @@ public class UserController {
   		item.setUnit(item.getUnit()-units);
         Double newRating=(item.getRating()+rating)/2;
         item.setRating(newRating);
-        if(review!=null) {
+        if(review!=" ") {
+        	System.out.print(review!=null);        
         String name=principal.getName();
         Review reviewNew=new Review();
         reviewNew.setReview(review);
@@ -112,17 +113,84 @@ public class UserController {
   		return mav;	
   	}
   	
-  	
-  	
-  	
   	@GetMapping("/details/{id}")
   	public ModelAndView details(@PathVariable(name = "id") Long id) {
   		ModelAndView mav=new ModelAndView("user/details");
   		mav.addObject("item",itemRepo.findById(id));
   	    mav.addObject("reviews",reviewRepo.findAll());
-  	    System.out.println(reviewRepo.findAll());
   		return mav;
-}}
+}
+  	
+	@GetMapping("/query/{id}")
+  	public ModelAndView query(@PathVariable(name = "id") Long id) {
+  		ModelAndView mav=new ModelAndView("user/query");
+  		mav.addObject("item",itemRepo.findById(id));
+  		mav.addObject("query",new Query()); 
+  		return mav;
+}
+
+  	@PostMapping("/query/{id}")
+  	public String Postquery(@PathVariable(name = "id") Long id,Principal principal,Query query) {
+  		  query.setItemId(id);
+  		  query.setUserEmail(principal.getName());
+  		  queryRepo.save(query);
+  		  return "/home";
+  	}
+  	
+	@GetMapping("/order/{id}")
+  	public ModelAndView order(@PathVariable(name = "id") Long id) {
+  		ModelAndView mav=new ModelAndView("user/order");
+  		mav.addObject("item",itemRepo.findById(id));
+  		mav.addObject("order",new OrderDetails());
+  		return mav;
+}
+
+  	@PostMapping("/order-done/{id}")
+  	public String Postorder(OrderDetails order,@PathVariable(name = "id") Long id,Principal principal) {
+  		  order.setItemId(id);
+  		  order.setItemName(itemRepo.findById(id).getModel());
+  		  order.setUserEmail(principal.getName());
+  		  orderRepo.save(order);
+  		 System.out.print(order.getUnits());
+  		  return "/user/orderSuccess";
+  	}
+  	
+	@GetMapping("/ordersList")
+  	public ModelAndView ordersList(Principal principal) {
+  		ModelAndView mav=new ModelAndView("user/ordersList");
+  		mav.addObject("orders",orderRepo.findAll());
+        mav.addObject("email",principal.getName());
+  		return mav;
+}
+	
+	@GetMapping("/cancel/{id}")
+  	public String cancel(Principal principal,@PathVariable(name = "id") Long id) {
+        OrderDetails order=orderRepo.findById(id);
+        if(order.getUserEmail().equals(principal.getName()))
+        {
+        	order.setStatusUser("cancelled");
+        	orderRepo.save(order);
+        	return "user/home";
+        }
+  		return "user/ordersList";
+}
+	
+	@GetMapping("/queries")
+  	public ModelAndView queries(Principal principal) {
+  		ModelAndView mav=new ModelAndView("user/queries");
+  		mav.addObject("queries",queryRepo.findAll());
+  		 mav.addObject("email",principal.getName());
+  		return mav;
+}
+	
+    @GetMapping("/resolved/{id}")
+	public String resolved(@PathVariable(name = "id") Long id,OrderDetails order) {
+		Query query=queryRepo.findById(id);
+		query.setStatusUser("resolved");
+		queryRepo.save(query);
+		return "/user/home";
+  }
+}
 
 
 
