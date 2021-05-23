@@ -3,6 +3,7 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("admin")
+@CrossOrigin(origins="https://kit.fontawesome.com/a076d05399.js")
 public class AdminController {
 	
 	@Autowired
@@ -32,11 +34,6 @@ public class AdminController {
   	public String retailersHome() {
   		return "admin/home";
   	}
-
-    @GetMapping("index")
-    public String index(){
-        return "/admin/dashboard";
-    }
     
   	@GetMapping("/inventory")
   	public String inventory() {
@@ -52,7 +49,7 @@ public class AdminController {
   	
   	@GetMapping("/dashboard")
   	public ModelAndView dashboard(Item items,User user) {
-  		ModelAndView mav=new ModelAndView("/admin/dashboard");
+  		ModelAndView mav=new ModelAndView("admin/dashboard");
   		mav.addObject("items",itemRepo.findAll());
   		mav.addObject("users",userRepo.findAll());
   		return mav;
@@ -98,7 +95,7 @@ public class AdminController {
   	
   	@GetMapping("/pichartAc")
   	public ModelAndView pichartAc(Item items) {
-  		ModelAndView mav=new ModelAndView("/admin/pichartAc");
+  		ModelAndView mav=new ModelAndView("admin/pichartAc");
   		mav.addObject("items",itemRepo.findAll());
   		return mav;
   	}
@@ -106,7 +103,7 @@ public class AdminController {
 	
   	@GetMapping("/pichartFridge")
   	public ModelAndView pichartFridge(Item items) {
-  		ModelAndView mav=new ModelAndView("/admin/pichartFridge");
+  		ModelAndView mav=new ModelAndView("admin/pichartFridge");
   		mav.addObject("items",itemRepo.findAll());
   		return mav;
   	}
@@ -114,14 +111,14 @@ public class AdminController {
 	
   	@GetMapping("/pichartCoolers")
   	public ModelAndView pichartCoolers(Item items) {
-  		ModelAndView mav=new ModelAndView("/admin/pichartCoolers");
+  		ModelAndView mav=new ModelAndView("admin/pichartCoolers");
   		mav.addObject("items",itemRepo.findAll());
   		return mav;
   	}
   	
   	@GetMapping("/ordersGraph")
   	public ModelAndView ordersGraph(Item items,OrderDetails order) {
-  		ModelAndView mav=new ModelAndView("/admin/ordersGraph");
+  		ModelAndView mav=new ModelAndView("admin/ordersGraph");
   		mav.addObject("items",itemRepo.findAll());
   		mav.addObject("orders",orderRepo.findAll());
   		return mav;
@@ -159,7 +156,7 @@ public class AdminController {
  	
       @GetMapping("/queries")
     	public ModelAndView queries(OrderDetails order) {
-    		ModelAndView mav=new ModelAndView("/admin/queries");
+    		ModelAndView mav=new ModelAndView("admin/queries");
     		mav.addObject("queries",queryRepo.findAll());
     		return mav;
       }
@@ -169,6 +166,6 @@ public class AdminController {
   		Query query=queryRepo.findById(id);
   		query.setStatusAdmin("resolved");
   		queryRepo.save(query);
-  		return "/admin/home";
+  		return "admin/home";
     }
 }

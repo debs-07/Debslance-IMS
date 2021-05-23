@@ -49,7 +49,7 @@
 
 <h1>Customer Reviews</h1>
 <section  id="section">
-	<div class="blog-card web" th:each="review :${reviews}" th:if="${review.review !=null} and ${review.itemId} == ${item.id}">
+	<div class="blog-card web" th:each="review :${reviews}" th:if="${review.review !=''} and ${review.itemId} == ${item.id}">
 		<div class="content-mask">
 			<span class="category" th:text="${review.user}">Web</span>
 			<h4 th:text="${review.review}">Improving Website Performance</h4>

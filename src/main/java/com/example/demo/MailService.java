@@ -57,7 +57,8 @@ public class MailService {
 			request.setBody(mail.build());
 			Response response = sg.api(request);
 			logger.info(response.getBody());
-			return response.getBody();
+			return "<h1>ORDER SUCCESS<h1>"
+			       + "<a href=\"https://debslance-ims.apps.pcfdev.in/user/displayProducts\">Go Back</a>";
 		} catch (IOException ex) {
 			throw ex;
 		}

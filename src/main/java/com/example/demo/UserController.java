@@ -3,6 +3,7 @@ package com.example.demo;
 import java.security.Principal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 @Controller
 @RequestMapping("user")
+@CrossOrigin(origins="https://kit.fontawesome.com/a076d05399.js")
 public class UserController {
 	
 	
@@ -100,8 +102,7 @@ public class UserController {
   		item.setUnit(item.getUnit()-units);
         Double newRating=(item.getRating()+rating)/2;
         item.setRating(newRating);
-        if(review!=" ") {
-        	System.out.print(review!=null);        
+        if(review!="") {     
         String name=principal.getName();
         Review reviewNew=new Review();
         reviewNew.setReview(review);
@@ -152,7 +153,7 @@ public class UserController {
   		  order.setUserEmail(principal.getName());
   		  orderRepo.save(order);
   		 System.out.print(order.getUnits());
-  		  return "/user/orderSuccess";
+  		  return "user/orderSuccess";
   	}
   	
 	@GetMapping("/ordersList")
@@ -188,7 +189,7 @@ public class UserController {
 		Query query=queryRepo.findById(id);
 		query.setStatusUser("resolved");
 		queryRepo.save(query);
-		return "/user/home";
+		return "user/home";
   }
 }
 

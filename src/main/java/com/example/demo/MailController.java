@@ -28,7 +28,7 @@ public class MailController {
 		}
 		else
 			return "<h1>ORDER SUCCESS<h1>"
-					+ "<a href=\"http://localhost:8080/user/displayProducts\">Go Back</a>";
+		       + "<a href=\"https://debslance-ims.apps.pcfdev.in/user/displayProducts\">Go Back</a>";
 	
   	}
 	
