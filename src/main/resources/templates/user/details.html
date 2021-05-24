@@ -31,23 +31,23 @@
     <p class="product__price"><span class="product__price-new" th:text="${item.sp}" >$199</span></p>
     <p class="product__desc" th:text="${item.color}">Lorem Ipsum is simply dummy text of the printing and typesetting industry lorem Ipsum is simply dummy</p>
       <form th:action="@{/user/cart/buy/{id}(id=${item.id})}" method="GET" id="userform">
-        <div class="qty">
-          <h5>Quantity</h5>
-          <input type="number" name="units" id="units" value="0" min="0" >
+        <div class="qty" style="float:left;">
+          <h5 id="h5">Quantity</h5>
+          <input type="number" name="units" id="units" value="0" min="0" required=true >
         </div>
-         <div class="qty">
-          <h5>Rating(From 5)</h5>
-          <input type="number" name="rating" id="rating" value="1.0" step="0.01" min="1.0" max="5.0">
+         <div class="qty" style="float:left;">
+          <h5 id="h5">Rating(From 5)</h5>
+          <input type="number" name="rating" id="rating" value="1.0" step="0.01" min="1.0" max="5.0" required="true">
         </div>
-        <label for="review">Review</label>
          <textarea rows="10" cols="50" name="review" id="review" form="userform" placeholder="Write a review"></textarea>
          <button class="btn btn--primary btn--rounded product__buy">Buy now</button>
       </div>
       </form>
+      
   </div>
 </div>
 
-<h1>Customer Reviews</h1>
+<h1 id="heading">Customer Reviews</h1>
 <section  id="section">
 	<div class="blog-card web" th:each="review :${reviews}" th:if="${review.review !=''} and ${review.itemId} == ${item.id}">
 		<div class="content-mask">

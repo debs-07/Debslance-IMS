@@ -19,7 +19,7 @@ html {
 #hola{
     width: 100vw;
     height: 100vh;
-    background-color: #252328;
+    background: radial-gradient(ellipse, #444, #111);
     position: fixed;
     z-index: 999;
 }

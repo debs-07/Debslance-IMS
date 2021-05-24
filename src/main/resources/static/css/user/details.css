@@ -2,11 +2,9 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito:200,400,400i,600,700,800");
 @import url(https://fonts.googleapis.com/css?family=Kaushan+Script);
 html {
-
+  background: radial-gradient(ellipse, #444, #111);
   color: rgba(0, 0, 0, 0.8);
   font-family: "Nunito", "Open Sans", sans-serif;
-  width: 100vw;
-  height: 100vh;
   margin: 0 auto;
 }
 
@@ -35,7 +33,7 @@ html {
 }
 .blog-card .content-mask {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.7);
   width: 61%;
   height: 100%;
   padding: 0.75em 0 0.75em 2.5em;
@@ -88,7 +86,7 @@ html {
 
 h1 {
   background: transparent;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgb(255, 255, 255);
   font-family: "Nunito", "Open Sans", sans-serif;
   font-size: 2.5em;
   font-weight: 800;
@@ -259,7 +257,7 @@ body {
   border-top-right-radius: 2rem;
   border-bottom-right-radius: 2rem;
   border-bottom-left-radius: 2rem;
-  margin: 10rem auto;
+  margin: 5rem auto;
 }
 .product__left, .product__right {
   flex: 0 0 50%;
@@ -281,7 +279,7 @@ body {
 .product__right {
   border-top-right-radius: 2rem;
   border-bottom-right-radius: 2rem;
-  background-color: white;
+  background-color: rgb(200,200,200);
   height: 100%;
   padding: 3.5rem;
 }
@@ -458,3 +456,25 @@ body {
           animation: fadeBg 1s linear forwards infinite;
 }
 
+body{
+	background: radial-gradient(ellipse, #444, #111);
+}
+
+.qty{
+	padding:5px;
+}
+
+#heading{
+	color:white;
+}
+input{
+border:2px solid black;
+  background-color: rgb(200,200,200);
+}
+#h5{
+	font-weight: bold;
+}
+textarea{
+	border:2px solid black;
+	  background-color: rgb(200,200,200);
+}

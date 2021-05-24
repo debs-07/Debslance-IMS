@@ -18,27 +18,27 @@
         <form th:action="@{/register-done}" th:object=${user} method="post">
         
          <div class="card-input-container username">
-                <input type="text" name="username" id="username" required="true" th:field="*{username}" placeholder="Username">
+                <input type="text" name="username" id="username" required="true" th:field="*{username}" placeholder="Username" >
                 <label>Username</label>
             </div>
             <div class="card-input-container email">
-                <input type="text" name="email" id="email" required="true" th:field="*{email}" placeholder="Email">
+                <input type="text" name="email" id="email" required="true" th:field="*{email}" placeholder="Email" >
                 <label>Email</label>
             </div>
             <div class="card-input-container company">
-                <input type="text" name="company" id="company" required="true" th:field="*{company}"placeholder="Company">
+                <input type="text" name="company" id="company" required="true" th:field="*{company}"placeholder="Company" >
                 <label>company</label>
             </div>
             <div class="card-input-container roles">
-                <input type="text" name="roles" id="roles" required="true" th:field="*{roles}" placeholder="Roles">
+                <input type="text" name="roles" id="roles" required="true" th:field="*{roles}" placeholder="Roles" >
                 <label>Roles</label>
             </div>
             <div class="card-input-container permissions">
-                <input type="text" name="permissions" id="permissions" required="true" th:field="*{permissions}"placeholder="Permissions">
+                <input type="text" name="permissions" id="permissions" required="true" th:field="*{permissions}"placeholder="Permissions" >
                 <label>Permissions</label>
             </div>
             <div class="card-input-container password">
-                <input type="password" name="password" id="password" required="true" th:field="*{password}" placeholder="Password">
+                <input type="password" name="password" id="password" required="true" th:field="*{password}" placeholder="Password" >
                 <label>Password</label>
             </div>
         

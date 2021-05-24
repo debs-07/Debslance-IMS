@@ -18,23 +18,23 @@
         <small class="card-subtitle">Enter your credentials and get Registered</small>
         <form th:action="@{/userRegisterDone}" th:object=${user} method="post">
          <div class="card-input-container username">
-                <input type="text" name="username" id="username" required="true" th:field="*{username}"  placeholder="Username">
+                <input type="text" name="username" id="username" required="true" th:field="*{username}"  placeholder="Username" >
                 <label>Username</label>
             </div>
             <div class="card-input-container email">
-               <input type="text" name="email" id="email" required="true" th:field="*{email}"  placeholder="Email">
+               <input type="text" name="email" id="email" required="true" th:field="*{email}"  placeholder="Email" >
                <label>Email</label>
             </div>
              <div class="card-input-container Age">
-                <input type="text" name="age" id="age" required="age" th:field="*{age}" placeholder="Age">
+                <input type="text" name="age" id="age" required="age" th:field="*{age}" placeholder="Age" >
                 <label>Age</label>
             </div>
              <div class="card-input-container country"> 
-                <input type="text" name="country" id="country" required="true" th:field="*{country}" placeholder="Country">
+                <input type="text" name="country" id="country" required="true" th:field="*{country}" placeholder="Country" >
                 <label>Country</label>
             </div>
             <div class="card-input-container password">
-                <input type="password" name="password" id="password" required="true" th:field="*{password}" placeholder="Passoword">
+                <input type="password" name="password" id="password" required="true" th:field="*{password}" placeholder="Passoword" >
                 <label>Password</label>
             </div>
             <button type="submit" class="card-button">Register</button>

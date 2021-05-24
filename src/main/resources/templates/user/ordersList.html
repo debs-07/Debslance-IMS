@@ -7,9 +7,17 @@
   <title>Document</title>
      <link rel="stylesheet" href="/css/user/ordersList.css" type="text/css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     
 </head>
 <body>
+<div class="flip" id="prev">
+	<a th:href="@{/user/displayProducts}">
+		<div class="front"><i class="fa fa-shopping-cart"></i>Shop</div>
+		<div class="back"><i class="fa fa-shopping-cart"></i>Shop</div>
+  </a>
+</div>
  <h1 sec:authentication="principal.email" style="text-align: center;"></h1>
+ <h2 style="text-align: center;">ORDERS</h2>	
   
   <main>
   <ol class="gradient-list" id="gradient-list" th:each="order :${orders}" th:if="${email==order.userEmail AND order.statusUser ==cancelled}">
@@ -30,8 +38,8 @@ function use(units)
     </script>
 <div class="flip">
 	<a th:href="@{/user/cancel/{id}(id=${order.Id})}">
-		<div class="front"><i class="fa fa-home"></i>Cancel Order</div>
-		<div class="back"><i class="fa fa-home"></i>Cancel Order</div>
+		<div class="front"><i class="fa fa-warning"></i>Cancel</div>
+		<div class="back"><i class="fa fa-warning"></i>Cancel</div>
   </a>
 </div>
 

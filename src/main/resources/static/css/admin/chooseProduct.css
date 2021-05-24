@@ -1,7 +1,9 @@
 * {
     box-sizing: border-box;
-     background:#252328;
      text-decoration: none;
+}
+html{
+	background: radial-gradient(ellipse, #444, #111);
 }
 .container {
     max-width: 420px;

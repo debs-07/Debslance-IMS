@@ -1,5 +1,5 @@
 .hm-gradient {
-    background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+    background: radial-gradient(ellipse, #444, #111);
 }
 .darken-grey-text {
     color: #2E2E2E;
@@ -62,4 +62,33 @@
 .row{
 	margin-left:30%;
 	margin-top:5%;
+}
+
+.card{
+	background: rgb(20,20,20);
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active
+{
+ -webkit-box-shadow: 0 0 0 30px rgb(50, 50, 50) inset !important;
+}
+
+/*Change text in autofill textbox*/
+input:-webkit-autofill
+{
+ -webkit-text-fill-color: white !important;
+}
+
+#message,#form321{
+	color:white;
+}
+h3{
+	color:white;
+}
+.btn:hover{
+	background-color: white;
 }

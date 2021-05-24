@@ -135,7 +135,7 @@ public class UserController {
   		  query.setItemId(id);
   		  query.setUserEmail(principal.getName());
   		  queryRepo.save(query);
-  		  return "/home";
+  		  return "user/home";
   	}
   	
 	@GetMapping("/order/{id}")

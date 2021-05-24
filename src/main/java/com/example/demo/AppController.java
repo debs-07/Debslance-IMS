@@ -39,7 +39,7 @@ public class AppController {
 		return "login";
 	}
 	
-  	@GetMapping("/register")
+  	@GetMapping("/register-1604")
   	public String register(Model model) {
   		model.addAttribute("user",new User());
   		return "admin/register";

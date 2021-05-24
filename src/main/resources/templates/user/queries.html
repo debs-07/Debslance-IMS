@@ -9,12 +9,11 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
-<body>
-    
+<body id="body">
 <div class="row">
     <div class="col-md-12 col-lg-6" th:each="query :${queries}" th:if="${email==query.userEmail}">
       <div class="member-card">
-        <div class="member-pic"><img class="member-pic rounded-circle" src="https://icons-for-free.com/iconfiles/png/512/profile+user+icon-1320166082804563970.png"/></div>
+        <div class="member-pic"><img class="member-pic rounded-circle" style="background-color:white;" src="https://icons-for-free.com/iconfiles/png/512/profile+user+icon-1320166082804563970.png"/></div>
         <div class="member-card-details">
           <a href="#"><div class="member-name" th:text="${query.message}">Ipek Raskolnikov</div></a>
           <label for="ID">Admin Response:-</label>

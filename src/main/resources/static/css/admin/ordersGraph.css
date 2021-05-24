@@ -351,3 +351,7 @@ p {
   line-height: 2em;
   max-width: 60em;
 }
+
+body{
+	background: radial-gradient(ellipse, #444, #111);
+}
